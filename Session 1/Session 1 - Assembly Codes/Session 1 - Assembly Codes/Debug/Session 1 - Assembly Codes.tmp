@@ -22,13 +22,13 @@
   <FILE>Session 1 - Assembly Codes.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <L4><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>15</LINE></L4>
-  <START><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>17</LINE></START>
-  <DELAY><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>34</LINE></DELAY>
-  <L5><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>24</LINE></L5>
-  <REVERSE><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>26</LINE></REVERSE>
-  <L1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>36</LINE></L1>
-  <L2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>37</LINE></L2>
-  <L3><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>38</LINE></L3>
+  <L4><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>11</LINE></L4>
+  <BEGIN><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>13</LINE></BEGIN>
+  <DELAYS><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>30</LINE></DELAYS>
+  <L5><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>20</LINE></L5>
+  <END><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>22</LINE></END>
+  <L1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>32</LINE></L1>
+  <L2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>33</LINE></L2>
+  <L3><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>34</LINE></L3>
  </LABELS>
 </ASSEMBLER_INFO>

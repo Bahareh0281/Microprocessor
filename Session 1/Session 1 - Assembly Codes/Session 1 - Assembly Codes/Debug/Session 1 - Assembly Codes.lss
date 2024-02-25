@@ -1,12 +1,12 @@
 
-AVRASM ver. 2.2.6  D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm Sun Feb 25 14:49:52 2024
+AVRASM ver. 2.2.6  D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm Sun Feb 25 15:05:56 2024
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc'
-D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm(7): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc'
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm(3): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc'
-D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm(7): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc'
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm(3): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc'
                                  
-                                 ;
+                                 ; Bahareh Kavousi nejad
                                  
                                  ;***** Created: 2011-02-09 12:03 ******* Source: ATmega32.xml ************
                                  ;*************************************************************************
@@ -822,11 +822,7 @@ D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 
                                  #endif  /* _M32DEF_INC_ */
                                  
                                  
-                                 ; Session 1 - Assembly Codes.asm
-                                 ;
-                                 ; Created: 2/25/2024 2:48:31 PM
-                                 ; Author : Kavousinejad
-                                 ;
+                                 ; 99431217
                                  .include "m32def.inc"
                                  
                                  ;***** Created: 2011-02-09 12:03 ******* Source: ATmega32.xml ************
@@ -880,24 +876,24 @@ D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 
 000005 bb07                          OUT      DDRB,R16
 000006 e001                      L4: LDI      R16,0b00000001
                                  
-                                 START:
+                                 BEGIN:
 000007 bb08                          OUT      PORTB,R16
-000008 940e 0016                     CALL     DELAY
+000008 940e 0016                     CALL     DELAYS
 00000a 0f00                          LSL      R16
 00000b 3000                          CPI      R16,0
-00000c f7d1                          BRNE     START
+00000c f7d1                          BRNE     BEGIN
                                  
 00000d e800                      L5: LDI      R16,0b10000000
                                  
-                                 REVERSE:
+                                 END:
 00000e bb08                          OUT      PORTB,R16
-00000f 940e 0016                     CALL     DELAY
+00000f 940e 0016                     CALL     DELAYS
 000011 9506                          LSR      R16
-000012 f7d9                          BRNE     REVERSE
+000012 f7d9                          BRNE     END
 000013 940c 0006                     JMP      L4
 000015 cff0                          RJMP     L4
                                  
-                                 DELAY:
+                                 DELAYS:
 000016 ef1f                          LDI      R17,0xFF
 000017 b329                      L1: IN       R18,PINA
 000018 e130                      L2: LDI      R19,0x10

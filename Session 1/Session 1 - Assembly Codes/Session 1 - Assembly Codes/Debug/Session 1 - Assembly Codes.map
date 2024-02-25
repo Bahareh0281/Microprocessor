@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm Sun Feb 25 14:49:52 2024
+AVRASM ver. 2.2.6  D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm Sun Feb 25 15:05:56 2024
 
 
 EQU  SIGNATURE_000 0000001e
@@ -569,10 +569,10 @@ EQU  TWIaddr      00000026
 EQU  SPMRaddr     00000028
 EQU  INT_VECTORS_SIZE 0000002a
 CSEG L4           00000006
-CSEG START        00000007
-CSEG DELAY        00000016
+CSEG BEGIN        00000007
+CSEG DELAYS       00000016
 CSEG L5           0000000d
-CSEG REVERSE      0000000e
+CSEG END          0000000e
 CSEG L1           00000017
 CSEG L2           00000018
 CSEG L3           00000019
