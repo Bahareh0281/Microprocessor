@@ -1,0 +1,34 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.6</VERSION>
+ <DEVICE>"ATmega32"</DEVICE>
+ <WORKING_DIR>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\Debug\Session 1 - Assembly Codes.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Session 1 - Assembly Codes.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Session 1 - Assembly Codes.map</FILE>
+  <FILE>Session 1 - Assembly Codes.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <L4><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>15</LINE></L4>
+  <START><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>17</LINE></START>
+  <DELAY><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>34</LINE></DELAY>
+  <L5><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>24</LINE></L5>
+  <REVERSE><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>26</LINE></REVERSE>
+  <L1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>36</LINE></L1>
+  <L2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>37</LINE></L2>
+  <L3><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 1\Session 1 - Assembly Codes\Session 1 - Assembly Codes\main.asm</FILE><LINE>38</LINE></L3>
+ </LABELS>
+</ASSEMBLER_INFO>
