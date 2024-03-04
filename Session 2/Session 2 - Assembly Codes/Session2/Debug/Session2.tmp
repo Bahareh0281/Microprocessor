@@ -1,0 +1,55 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.6</VERSION>
+ <DEVICE>"ATmega32"</DEVICE>
+ <WORKING_DIR>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\Debug\Session2.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Session2.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Session2.map</FILE>
+  <FILE>Session2.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <START><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>16</LINE></START>
+  <START1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>25</LINE></START1>
+  <F0><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>35</LINE></F0>
+  <J0><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>60</LINE></J0>
+  <S><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>31</LINE></S>
+  <F1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>40</LINE></F1>
+  <F4><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>85</LINE></F4>
+  <F2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>46</LINE></F2>
+  <F3><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>52</LINE></F3>
+  <F5><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>57</LINE></F5>
+  <J1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>65</LINE></J1>
+  <J2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>71</LINE></J2>
+  <J3><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>77</LINE></J3>
+  <J4><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>82</LINE></J4>
+  <CONVERT><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>126</LINE></CONVERT>
+  <DELAY><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>115</LINE></DELAY>
+  <L1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>116</LINE></L1>
+  <L2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>117</LINE></L2>
+  <L3><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>118</LINE></L3>
+  <C1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>132</LINE></C1>
+  <C2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>136</LINE></C2>
+  <C3><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>140</LINE></C3>
+  <C4><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>144</LINE></C4>
+  <C5><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>148</LINE></C5>
+  <C6><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>152</LINE></C6>
+  <C7><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>156</LINE></C7>
+  <C8><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>160</LINE></C8>
+  <C9><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>164</LINE></C9>
+  <C10><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 2\Session 2 - Assembly Codes\Session2\main.asm</FILE><LINE>167</LINE></C10>
+ </LABELS>
+</ASSEMBLER_INFO>
