@@ -10,6 +10,7 @@
  <SOURCE_FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</SOURCE_FILE>
  <INCLUDED_FILES>
   <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc</FILE>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\M32DEF.INC</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
   <FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\Debug\Exercise 3.obj</FILE>
@@ -22,28 +23,36 @@
   <FILE>Exercise 3.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <MAIN><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>10</LINE></MAIN>
-  <OC1Aaddr_ROUTINE><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>127</LINE></OC1Aaddr_ROUTINE>
-  <START><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>30</LINE></START>
-  <START1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>48</LINE></START1>
-  <SET_TIMER><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>61</LINE></SET_TIMER>
-  <E1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>80</LINE></E1>
-  <CONVERT><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>168</LINE></CONVERT>
-  <DELAY><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>154</LINE></DELAY>
-  <SET_VALUE><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>120</LINE></SET_VALUE>
-  <E2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>150</LINE></E2>
-  <L1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>156</LINE></L1>
-  <L2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>157</LINE></L2>
-  <L3><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>158</LINE></L3>
-  <C1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>174</LINE></C1>
-  <C2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>179</LINE></C2>
-  <C3><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>184</LINE></C3>
-  <C4><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>189</LINE></C4>
-  <C5><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>194</LINE></C5>
-  <C6><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>199</LINE></C6>
-  <C7><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>204</LINE></C7>
-  <C8><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>209</LINE></C8>
-  <C9><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>214</LINE></C9>
-  <C10><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>218</LINE></C10>
+  <MAIN><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>14</LINE></MAIN>
+  <TIMER0FUNC><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>162</LINE></TIMER0FUNC>
+  <TIMER1FUNC><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>169</LINE></TIMER1FUNC>
+  <DISPLY><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>52</LINE></DISPLY>
+  <D1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>61</LINE></D1>
+  <D2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>67</LINE></D2>
+  <D4><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>70</LINE></D4>
+  <D3><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>76</LINE></D3>
+  <H1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>79</LINE></H1>
+  <CONVERT><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>119</LINE></CONVERT>
+  <H2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>88</LINE></H2>
+  <H3><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>97</LINE></H3>
+  <H4><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>106</LINE></H4>
+  <C1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>124</LINE></C1>
+  <C2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>128</LINE></C2>
+  <C3><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>132</LINE></C3>
+  <C4><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>136</LINE></C4>
+  <C5><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>140</LINE></C5>
+  <C6><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>144</LINE></C6>
+  <C7><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>148</LINE></C7>
+  <C8><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>152</LINE></C8>
+  <C9><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>156</LINE></C9>
+  <C10><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>159</LINE></C10>
+  <DO><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>167</LINE></DO>
+  <LED><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>174</LINE></LED>
+  <DS1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>195</LINE></DS1>
+  <DS0><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>180</LINE></DS0>
+  <INCREM><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>187</LINE></INCREM>
+  <GO2><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>192</LINE></GO2>
+  <DECRE><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>202</LINE></DECRE>
+  <GO1><FILE>D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm</FILE><LINE>207</LINE></GO1>
  </LABELS>
 </ASSEMBLER_INFO>

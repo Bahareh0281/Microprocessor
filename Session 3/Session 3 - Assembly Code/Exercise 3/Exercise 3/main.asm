@@ -1,218 +1,244 @@
 ; Bahareh Kavousi nejad
 ; 99431217
 
-.include "m32def.inc"
-.ORG	0
-	RJMP		MAIN
-.ORG	OC1Aaddr
-	RJMP		OC1Aaddr_ROUTINE
+.INCLUDE  "M32DEF.INC"
+.ORG 0
 
-MAIN:
-	LDI		R16,HIGH(RAMEND)
-	OUT		SPH,R16
-	LDI		R16,LOW(RAMEND)
-	OUT		SPL,R16
+LDI R28,1   
+RJMP MAIN
+    
+.ORG $014
+    RJMP	TIMER0FUNC		; Go to TIMER0FUNCTION
+.ORG $00E
+    RJMP	TIMER1FUNC		; Go to TIMER1FUNCTION
 
-	LDI		R16,0xFF
-	OUT		DDRC,R16
-	OUT		DDRD,R16
+.ORG 0X100
+MAIN:                     
+  LDI        R16,0XFF
+  OUT        DDRB,R16
+  LDI        R16,0xFF
+  OUT        DDRC,R16        ; PORTC as output
+  OUT        DDRD,R16        ; PORTD as output
+  OUT        PORTA,R16       ; Enabling Pullup Resistor on PORTA 
+  LDI        R16,0x00
+  OUT        DDRA,R16        ;PORTA as input
 
-	OUT		PORTA,R16		;Enable Pullup Resistor on PORTA
-	
-	LDI		R16,0x00
-	
-	OUT		DDRA,R16		;PORTA as input
+; TIMER0 Setup 
+LDI			R16,0x0C
+OUT			TCCR0,R16
 
-	LDI		R16, 0xFF		;initialing PORTB
-	OUT		DDRB, R16
+LDI			R16,0x00
+OUT			TCNT0,R16
 
-
-START:
-    IN		R16,PINA
-	CPI 	R16,0
-	BREQ 	START1
-	LDI		R20,0           ;LSB = 0
-	LDI		R21,0			;Middle bit1 = 0
-	LDI		R22,0			;Middle bit2 = 0
-	LDI     R23,0			;MSB = 0
-
-	LDI		R24,0
-
-	LDI		R26,1			
-	LDI		R27,0x0A
-	LDI		R28,0
-		
-	RJMP	SET_TIMER
+LDI			R16,0x63
+OUT			OCR0,R16
 
 
-START1:
-	LDI		R20,9			;LSB = 9
-	LDI		R21,9			;Middle bit1 = 9
-	LDI		R22,9			;Middle bit2 = 9
-	LDI     R23,9			;MSB = 9
-		
-	LDI		R26,-1
-	LDI		R27,-1
-	LDI		R28,9
-		
-	RJMP	SET_TIMER
+; TIMER1 Setup 
+LDI			R16,0X00
+OUT			TCCR1A,R16
 
+LDI			R16,0x0C
+OUT			TCCR1B,R16
 
-SET_TIMER:
-	LDI		R25, 0X00
-	OUT		TCCR1A, R25
-	
-	LDI		R25, 0X0C
-	OUT		TCCR1B, R25
+LDI			R16,HIGH(31250) 
+OUT			OCR1AH,R16
 
-	LDI		R25, HIGH(31250)
-	OUT		OCR1AH, R25
-	
-	LDI		R25, LOW(31250)
-	OUT		OCR1AL, R25
-		
-	LDI		R25, 0X12
-	OUT		TIMSK, R25
-		
-	SEI
+LDI			R16,LOW(31250) 
+OUT			OCR1AL,R16
 
+LDI			R16, 0x12 
+OUT			TIMSK,R16
+SEI
 
-E1:
- 	LDI		R16,0b1110	;displaying MSB
-	OUT		PORTD,R16
-	MOV		R16,R23
-	CALL	CONVERT
-	OUT		PORTC,R16
-	CALL	DELAY
+; Main Loop
+LDI			R30,0
+LDI			R31,0
+LDI			R27,0b00000000		; LED 
+DISPLY: 
+	MOV        R17,R30
+    MOV        R24,R31
+    LDI        R20,0
+    LDI        R21,0
+    LDI        R22,0
+    LDI        R23,0
+                
+    MOV        R17,R30
+    MOV        R24,R31
+D1:     
+	CPI        R17,10
+    BRLO	   D2
+    LDI        R18,10
+    SUB        R17,R18
+    INC        R21            ; Middle bit 2
+    RJMP       D1
+D2:     
+	MOV        R22,R17        ; LSB       
+    LDI        R23,0
+D4:     
+	CPI        R24,10
+    BRLO       D3
+    SUB        R24,R18
+    INC        R23
+    NOP						  ; MSB
+    RJMP       D4
+D3:     
+	MOV        R20,R24        ; Middle bit 1
+	NOP
+            
+H1:         
+	LDI        R16,0b11110111 ; displaying LSB
+    OUT        PORTD,R16          
+    MOV        R16,R22
+    CALL       CONVERT
+    OUT        PORTC,R16
+    CPI        R28,1
+    BRNE       H2
+    RJMP       H1
+                     
+H2:         
+	LDI        R16,0b11111011    ;displaying Middle bit 2
+    OUT        PORTD,R16          
+    MOV        R16,R21
+    CALL       CONVERT
+    OUT        PORTC,R16
+    CPI		   R28,2
+    BRNE       H3
+    RJMP       H2           
+        
+H3:         
+		LDI        R16,0b11111101    ;displaying Middle bit 1
+        OUT        PORTD,R16
+        MOV        R16,R20
+        CALL       CONVERT
+        OUT        PORTC,R16
+        CPI        R28,3
+        BRNE       H4
+        RJMP       H3
+                       
+H4:        
+		LDI        R16,0b11111110    ;displaying MSB
+        OUT        PORTD,R16
+        NOP 
+        MOV        R16,R23
+        NOP
+        CALL       CONVERT
+        NOP
+        NOP
+        OUT        PORTC,R16              
+        CPI        R28,4
+        BRNE       DISPLY
+        RJMP       H4
 
-	LDI		R16,0b1101	;displaying Middle bit2 
-	OUT		PORTD,R16
-	MOV		R16,R22
-	CALL	CONVERT
-	OUT		PORTC,R16
-	CALL	DELAY
-		
-	LDI		R16,0b1011	;displaying Middle bit1 
-	OUT		PORTD,R16
-	MOV		R16,R21
-	CALL	CONVERT
-	OUT		PORTC,R16
-	CALL	DELAY
-
-	LDI		R16,0b0111	;displaying LSB
-	OUT		PORTD,R16
-	MOV		R16,R20
-	CALL	CONVERT
-	OUT		PORTC,R16
-	CALL	DELAY
-		
-	IN		R16,PINA
-	CPI 	R16,0
-	BREQ 	SET_VALUE
-		
-	LDI		R26,1			
-	LDI		R27,0x0A
-	LDI		R28,0
-		
-	RJMP	E1
-
-
-SET_VALUE:
-	LDI		R26,-1
-	LDI		R27,-1
-	LDI		R28,9
-	RJMP	E1
-
-
-OC1Aaddr_ROUTINE:	
-	Add  	R20, R26
-	CP   	R20, R27
-	BRNE 	E2
-		
-	MOV  	R20, R28
-	Add  	R21, R26
-	CP   	R21, R27
-	BRNE 	E2
-		
-	MOV 	R21, R28
-	Add  	R22, R26
-	CP   	R22 ,R27
-	BRNE 	E2
-	
-	MOV  	R22, R28
-	Add  	R23, R26
-	CP   	R23, R27
-	BRNE	E2
-		
-	MOV  	R23, R28
-
-
-E2:  
-	RETI
-
-
-DELAY:	
-	LDI		R17,0x01
-L1:	LDI		R18,0xFF
-L2:	LDI		R19,0xAA
-L3:	DEC		R19
-	BRNE	L3
-	DEC		R18
-	BRNE	L2
-	DEC		R17
-	BRNE	L1
-	RET				
-
-
-;converts a digit to 7seg code 
-CONVERT:	
-	CPI		R16,0
-	BRNE	C1
-	LDI		R16,0x3F
+; Convert a digit to 7seg code            
+CONVERT: 
+    CPI			R16,0
+    BRNE		C1
+    LDI			R16,0x3F
+    RET
+C1:        
+	CPI			R16,1
+    BRNE		C2
+    LDI			R16,0x06
+    RET
+C2:        
+	CPI			R16,2
+    BRNE		C3
+    LDI			R16,0x5B
+    RET
+C3:        
+	CPI			R16,3
+    BRNE		C4
+    LDI			R16,0x4F
+    RET
+C4:        
+	CPI			R16,4
+    BRNE		C5
+    LDI			R16,0x66
+    RET
+C5:        
+	CPI			R16,5
+    BRNE		C6
+    LDI			R16,0x6D
+    RET
+C6:        
+	CPI			R16,6
+    BRNE		C7
+    LDI			R16,0x7D
+    RET
+C7:        
+	CPI			R16,7
+    BRNE		C8
+    LDI			R16,0x07
+    RET
+C8:        
+	CPI			R16,8
+    BRNE		C9
+    LDI			R16,0x7F
+    RET
+C9:        
+	CPI			R16,9
+    BRNE		C10
+    LDI			R16,0x6F
+C10:    
 	RET
+                                
+; 5ms            
+TIMER0FUNC:          
+INC			R28
+CPI			R28,5
+BRNE		DO
+LDI			R28,1
+DO:			RETI
 
-C1:	CPI		R16,1
-	BRNE	C2
-	LDI		R16,0x06
-	RET
+; 1s
+TIMER1FUNC:
+LSL			R27              ; LED
+CPI			R27,0
+BRNE		LED
+LDI			R27,0b00000001 
+LED: 
+OUT			PORTB,R27
+; Input
+IN		R25,PINA            
+CPI     R25,0b00000000 
+BRNE	DS1
+RJMP	DS0
 
-C2:	CPI		R16,2
-	BRNE	C3
-	LDI		R16,0x5B
-	RET
+; If DS is off -> couter is added each time
+DS0:    
+		CPI		R31,99
+        BRNE	INCREM              ; 0000 after 9999
+        CPI		R30,99
+        BRNE	GO2
+        LDI		R31,00
+        LDI		R30,00
+        RETI
+INCREM:	
+		CPI		R30,99
+        BRNE	GO2
+        LDI		R30,00
+        INC		R31
+        RETI
+GO2:		
+		INC		R30
+        RETI
 
-C3:	CPI		R16,3
-	BRNE	C4
-	LDI		R16,0x4F
-	RET
-
-C4:	CPI		R16,4
-	BRNE	C5
-	LDI		R16,0x66
-	RET
-
-C5:	CPI		R16,5
-	BRNE	C6
-	LDI		R16,0x6D
-	RET
-
-C6:	CPI		R16,6
-	BRNE	C7
-	LDI		R16,0x7D
-	RET
-
-C7:	CPI		R16,7
-	BRNE	C8
-	LDI		R16,0x07
-	RET
-
-C8:	CPI		R16,8
-	BRNE	C9
-	LDI		R16,0x7F
-	RET
-
-C9:	CPI		R16,9
-	BRNE	C10
-	LDI		R16,0x6F
-
-C10:	RET
+; If DS is on -> couter is decreased each time
+DS1:      
+		CPI		R31,00            
+		BRNE	DECRE           ; 9999 after 0000
+        CPI		R30,00
+        BRNE	GO1
+        LDI		R31,99
+        LDI		R30,99
+        RETI
+DECRE:	
+		CPI		R30,00
+        BRNE	GO1
+        LDI		R30,99
+        DEC		R31
+        RETI
+GO1:		
+		DEC R30
+        RETI

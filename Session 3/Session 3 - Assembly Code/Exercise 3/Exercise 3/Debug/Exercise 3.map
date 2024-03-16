@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm Sat Mar 16 23:59:26 2024
+AVRASM ver. 2.2.6  D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm Sun Mar 17 00:09:51 2024
 
 
 EQU  SIGNATURE_000 0000001e
@@ -568,26 +568,34 @@ EQU  ACIaddr      00000024
 EQU  TWIaddr      00000026
 EQU  SPMRaddr     00000028
 EQU  INT_VECTORS_SIZE 0000002a
-CSEG MAIN         0000000f
-CSEG OC1Aaddr_ROUTINE 00000065
-CSEG START        0000001b
-CSEG START1       00000027
-CSEG SET_TIMER    0000002f
-CSEG E1           0000003a
-CSEG CONVERT      00000080
-CSEG DELAY        00000076
-CSEG SET_VALUE    00000061
-CSEG E2           00000075
-CSEG L1           00000077
-CSEG L2           00000078
-CSEG L3           00000079
-CSEG C1           00000084
-CSEG C2           00000088
-CSEG C3           0000008c
-CSEG C4           00000090
-CSEG C5           00000094
-CSEG C6           00000098
-CSEG C7           0000009c
-CSEG C8           000000a0
-CSEG C9           000000a4
-CSEG C10          000000a7
+CSEG MAIN         00000100
+CSEG TIMER0FUNC   00000184
+CSEG TIMER1FUNC   00000189
+CSEG DISPLY       0000011c
+CSEG D1           00000124
+CSEG D2           0000012a
+CSEG D4           0000012c
+CSEG D3           00000132
+CSEG H1           00000134
+CSEG CONVERT      0000015c
+CSEG H2           0000013d
+CSEG H3           00000146
+CSEG H4           0000014f
+CSEG C1           00000160
+CSEG C2           00000164
+CSEG C3           00000168
+CSEG C4           0000016c
+CSEG C5           00000170
+CSEG C6           00000174
+CSEG C7           00000178
+CSEG C8           0000017c
+CSEG C9           00000180
+CSEG C10          00000183
+CSEG DO           00000188
+CSEG LED          0000018d
+CSEG DS1          000001a0
+CSEG DS0          00000192
+CSEG INCREM       00000199
+CSEG GO2          0000019e
+CSEG DECRE        000001a7
+CSEG GO1          000001ac

@@ -1,12 +1,12 @@
 
-AVRASM ver. 2.2.6  D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm Sat Mar 16 23:59:26 2024
+AVRASM ver. 2.2.6  D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm Sun Mar 17 00:09:51 2024
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc'
-D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc'
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm(1): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\M32DEF.INC'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc'
-D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc'
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 3 - Assembly Code\Exercise 3\Exercise 3\main.asm(1): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\M32DEF.INC'
                                  
-                                 ; Bahareh Kavousi nejad
+                                 .INCLUDE  "M32DEF.INC"
                                  
                                  ;***** Created: 2011-02-09 12:03 ******* Source: ATmega32.xml ************
                                  ;*************************************************************************
@@ -822,9 +822,6 @@ D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 
                                  #endif  /* _M32DEF_INC_ */
                                  
                                  
-                                 ; 99431217
-                                 
-                                 .include "m32def.inc"
                                  
                                  ;***** Created: 2011-02-09 12:03 ******* Source: ATmega32.xml ************
                                  ;*************************************************************************
@@ -868,218 +865,215 @@ D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3\Session 
                                  
                                  #endif  /* _M32DEF_INC_ */
                                  
-                                 .ORG	0
-000000 c00e                      	RJMP		MAIN
-                                 .ORG	OC1Aaddr
-00000e c056                      	RJMP		OC1Aaddr_ROUTINE
-                                 
-                                 MAIN:
-00000f e008                      	LDI		R16,HIGH(RAMEND)
-000010 bf0e                      	OUT		SPH,R16
-000011 e50f                      	LDI		R16,LOW(RAMEND)
-000012 bf0d                      	OUT		SPL,R16
-                                 
-000013 ef0f                      	LDI		R16,0xFF
-000014 bb04                      	OUT		DDRC,R16
-000015 bb01                      	OUT		DDRD,R16
-                                 
-000016 bb0b                      	OUT		PORTA,R16		;Enable Pullup Resistor on PORTA
-                                 	
-000017 e000                      	LDI		R16,0x00
-                                 	
-000018 bb0a                      	OUT		DDRA,R16		;PORTA as input
-                                 
-000019 ef0f                      	LDI		R16, 0xFF		;initialing PORTB
-00001a bb07                      	OUT		DDRB, R16
                                  
                                  
-                                 START:
-00001b b309                          IN		R16,PINA
-00001c 3000                      	CPI 	R16,0
-00001d f049                      	BREQ 	START1
-00001e e040                      	LDI		R20,0           ;LSB = 0
-00001f e050                      	LDI		R21,0			;Middle bit1 = 0
-000020 e060                      	LDI		R22,0			;Middle bit2 = 0
-000021 e070                      	LDI     R23,0			;MSB = 0
+                                 .ORG 0
+000000 e0c1                       LDI R28,1   
+000001 c0fe                          RJMP MAIN
+                                     
+                                 .ORG $014
+000014 c16f                          RJMP TIMER0FUNC     ;; RAFTAN BE TIMER0FUNCTION
+                                 .ORG $00E
+00000e c17a                          RJMP TIMER1FUNC    ;;RAFTAN BE TIMER1FUNCTION
                                  
-000022 e080                      	LDI		R24,0
+                                 .ORG 0X100
+                                 MAIN:                     
+000100 ef0f                        LDI        R16,0XFF
+000101 bb07                        OUT        DDRB,R16
+000102 ef0f                        LDI        R16,0xFF
+000103 bb04                        OUT        DDRC,R16        ;PORTC as output
+000104 bb01                        OUT        DDRD,R16        ;PORTD as output
+000105 bb0b                        OUT        PORTA,R16        ;Enabling Pullup Resistor on PORTA 
+000106 e000                        LDI        R16,0x00
+000107 bb0a                        OUT        DDRA,R16        ;PORTA as input 
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;RAHANDAZI TIMER0 
+000108 e00c                      LDI R16,0x0C
+000109 bf03                      OUT TCCR0,R16
                                  
-000023 e0a1                      	LDI		R26,1			
-000024 e0ba                      	LDI		R27,0x0A
-000025 e0c0                      	LDI		R28,0
-                                 		
-000026 c008                      	RJMP	SET_TIMER
+00010a e000                      LDI R16,0x00
+00010b bf02                      OUT TCNT0,R16
+                                 
+00010c e603                      LDI R16,0x63
+00010d bf0c                      OUT OCR0,R16
+                                 
+00010e e000                      LDI R16,0X00                             ;;;;;;;;;;;;;;;RAHANDAZI TIMER1 
+00010f bd0f                      OUT TCCR1A,R16
+                                 
+000110 e00c                      LDI R16,0x0C
+000111 bd0e                      OUT TCCR1B,R16
+                                 
+000112 e70a                      LDI R16,HIGH(31250) 
+000113 bd0b                      OUT OCR1AH,R16
+                                 
+000114 e102                      LDI R16,LOW(31250) 
+000115 bd0a                      OUT OCR1AL,R16
+                                 
+000116 e102                      LDI R16, 0x12 
+000117 bf09                      OUT TIMSK,R16
+000118 9478                      SEI
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;HALGHE ASLI
+000119 e0e0                       LDI R30,0
+00011a e0f0                       LDI R31,0
+00011b e0b0                       LDI R27,0b00000000  ;FOR LED 
+00011c 2f1e                       DISPLY: MOV        R17,R30
+00011d 2f8f                              MOV        R24,R31
+00011e e040                              LDI        R20,0
+00011f e050                              LDI        R21,0
+000120 e060                              LDI        R22,0
+000121 e070                              LDI        R23,0
+                                                 
+000122 2f1e                                  MOV        R17,R30
+000123 2f8f                                  MOV        R24,R31
+000124 301a                          D1:     CPI        R17,10
+000125 f020                                  BRLO    D2
+000126 e02a                                  LDI        R18,10
+000127 1b12                                  SUB        R17,R18
+000128 9553                                  INC        R21            ;Dahgan
+000129 cffa                                  RJMP       D1
+00012a 2f61                          D2:     MOV        R22,R17            ;Yekan
+                                            
+00012b e070                                  LDI        R23,0
+00012c 308a                          D4:     CPI        R24,10
+00012d f020                                  BRLO       D3
+00012e 1b82                                  SUB        R24,R18
+00012f 9573                                  INC        R23
+000130 0000                                  NOP            ;HEZAREGAN
+000131 cffa                                  RJMP       D4
+000132 2f48                          D3:     MOV        R20,R24            ;SADEGAN
+000133 0000                                  NOP
+                                             
+000134 ef07                      H1:         LDI        R16,0b11110111     ;displaying Yekan
+000135 bb02                                  OUT        PORTD,R16          
+000136 2f06                                  MOV        R16,R22
+000137 940e 015c                             CALL       CONVERT
+000139 bb05                                  OUT        PORTC,R16
+00013a 30c1                                  CPI        R28,1
+00013b f409                                  BRNE       H2
+00013c cff7                                  RJMP       H1
+                                                      
+00013d ef0b                      H2:         LDI        R16,0b11111011    ;displaying Dahgan
+00013e bb02                                  OUT        PORTD,R16          
+00013f 2f05                                  MOV        R16,R21
+000140 940e 015c                             CALL       CONVERT
+000142 bb05                                  OUT        PORTC,R16
+000143 30c2                                  CPI R28,2
+000144 f409                                  BRNE       H3
+000145 cff7                                  RJMP       H2           
+                                         
+000146 ef0d                      H3:         LDI        R16,0b11111101    ;displaying Sadgan
+000147 bb02                                  OUT        PORTD,R16
+000148 2f04                                  MOV        R16,R20
+000149 940e 015c                             CALL       CONVERT
+00014b bb05                                  OUT        PORTC,R16
+00014c 30c3                                  CPI        R28,3
+00014d f409                                  BRNE       H4
+00014e cff7                                  RJMP       H3
+                                                        
+00014f ef0e                       H4:        LDI        R16,0b11111110    ;displaying HEZAREGAN
+000150 bb02                                  OUT        PORTD,R16
+000151 0000                                  NOP 
+000152 2f07                                  MOV        R16,R23
+000153 0000                                  NOP
+000154 940e 015c                             CALL       CONVERT
+000156 0000                                  NOP
+000157 0000                                  NOP
+000158 bb05                                  OUT        PORTC,R16              
+000159 30c4                                  CPI        R28,4
+00015a f609                                  BRNE       DISPLY
+00015b cff3                                  RJMP       H4
+                                             
+                                 CONVERT:                ;converts a digit to 7seg code 
+00015c 3000                              CPI        R16,0
+00015d f411                              BRNE    C1
+00015e e30f                              LDI        R16,0x3F
+00015f 9508                              RET
+000160 3001                      C1:        CPI        R16,1
+000161 f411                              BRNE    C2
+000162 e006                              LDI        R16,0x06
+000163 9508                              RET
+000164 3002                      C2:        CPI        R16,2
+000165 f411                              BRNE    C3
+000166 e50b                              LDI        R16,0x5B
+000167 9508                              RET
+000168 3003                      C3:        CPI        R16,3
+000169 f411                              BRNE    C4
+00016a e40f                              LDI        R16,0x4F
+00016b 9508                              RET
+00016c 3004                      C4:        CPI        R16,4
+00016d f411                              BRNE    C5
+00016e e606                              LDI        R16,0x66
+00016f 9508                              RET
+000170 3005                      C5:        CPI        R16,5
+000171 f411                              BRNE    C6
+000172 e60d                              LDI        R16,0x6D
+000173 9508                              RET
+000174 3006                      C6:        CPI        R16,6
+000175 f411                              BRNE    C7
+000176 e70d                              LDI        R16,0x7D
+000177 9508                              RET
+000178 3007                      C7:        CPI        R16,7
+000179 f411                              BRNE    C8
+00017a e007                              LDI        R16,0x07
+00017b 9508                              RET
+00017c 3008                      C8:        CPI        R16,8
+00017d f411                              BRNE    C9
+00017e e70f                              LDI        R16,0x7F
+00017f 9508                              RET
+000180 3009                      C9:        CPI        R16,9
+000181 f409                              BRNE    C10
+000182 e60f                              LDI        R16,0x6F
+000183 9508                      C10:    RET
+                                                                 
+                                             
+                                 TIMER0FUNC:          ;; EVERY  5ms
+000184 95c3                      INC R28
+000185 30c5                      CPI R28,5
+000186 f409                      BRNE  DO
+000187 e0c1                      LDI R28,1
+000188 9518                      DO: RETI
+                                 
+                                 TIMER1FUNC:            ;; EVERY 1s
+000189 0fbb                       LSL  R27              ;; LED
+00018a 30b0                       CPI  R27,0
+00018b f409                       BRNE LED
+00018c e0b1                       LDI R27,0b00000001 
+00018d bbb8                      LED: OUT PORTB,R27
+00018e b399                       IN		R25,PINA            ;; TAAIN VORODI
+00018f 3090                                  CPI      R25,0b00000000 
+000190 f479                                  BRNE  DS1
+000191 c000                                  RJMP  DS0
+                                 
+000192 36f3                      DS0:      CPI R31,99                 ;; AGAR DS BARABAR OFF BASHAD SOODI MISHOMARAD
+000193 f429                                BRNE  INCREM              ;;AGAR SHMARANDE 9999 BASHAD 0000 MISHAVAD
+000194 36e3                                CPI R30,99
+000195 f441                                BRNE  GO2
+000196 e0f0                                LDI R31,00
+000197 e0e0                                LDI R30,00
+000198 9518                                RETI
+000199 36e3                          INCREM:	CPI R30,99
+00019a f419                                  BRNE  GO2
+00019b e0e0                                  LDI R30,00
+00019c 95f3                                  INC R31
+00019d 9518                                  RETI
+00019e 95e3                          GO2:		INC R30
+00019f 9518                                      RETI
+                                 
+0001a0 30f0                      DS1:      CPI R31,00            ;; AGAR DS BARABAR ON BASHAD NOZOLI MISHOMARAD
+0001a1 f429                                BRNE  DECRE           ;;AGAR SHMARANDE 0000 BASHAD 9999 MISHAVAD
+0001a2 30e0                                CPI R30,00
+0001a3 f441                                BRNE  GO1
+0001a4 e6f3                                LDI R31,99
+0001a5 e6e3                                LDI R30,99
+0001a6 9518                                RETI
+0001a7 30e0                          DECRE:	CPI R30,00
+0001a8 f419                                  BRNE  GO1
+0001a9 e6e3                                  LDI R30,99
+0001aa 95fa                                  DEC R31
+0001ab 9518                                  RETI
+0001ac 95ea                          GO1:		DEC R30
+0001ad 9518                                      RETI
                                  
                                  
-                                 START1:
-000027 e049                      	LDI		R20,9			;LSB = 9
-000028 e059                      	LDI		R21,9			;Middle bit1 = 9
-000029 e069                      	LDI		R22,9			;Middle bit2 = 9
-00002a e079                      	LDI     R23,9			;MSB = 9
-                                 		
-00002b efaf                      	LDI		R26,-1
-00002c efbf                      	LDI		R27,-1
-00002d e0c9                      	LDI		R28,9
-                                 		
-00002e c000                      	RJMP	SET_TIMER
-                                 
-                                 
-                                 SET_TIMER:
-00002f e090                      	LDI		R25, 0X00
-000030 bd9f                      	OUT		TCCR1A, R25
-                                 	
-000031 e09c                      	LDI		R25, 0X0C
-000032 bd9e                      	OUT		TCCR1B, R25
-                                 
-000033 e79a                      	LDI		R25, HIGH(31250)
-000034 bd9b                      	OUT		OCR1AH, R25
-                                 	
-000035 e192                      	LDI		R25, LOW(31250)
-000036 bd9a                      	OUT		OCR1AL, R25
-                                 		
-000037 e192                      	LDI		R25, 0X12
-000038 bf99                      	OUT		TIMSK, R25
-                                 		
-000039 9478                      	SEI
-                                 
-                                 
-                                 E1:
-00003a e00e                       	LDI		R16,0b1110	;displaying MSB
-00003b bb02                      	OUT		PORTD,R16
-00003c 2f07                      	MOV		R16,R23
-00003d 940e 0080                 	CALL	CONVERT
-00003f bb05                      	OUT		PORTC,R16
-000040 940e 0076                 	CALL	DELAY
-                                 
-000042 e00d                      	LDI		R16,0b1101	;displaying Middle bit2 
-000043 bb02                      	OUT		PORTD,R16
-000044 2f06                      	MOV		R16,R22
-000045 940e 0080                 	CALL	CONVERT
-000047 bb05                      	OUT		PORTC,R16
-000048 940e 0076                 	CALL	DELAY
-                                 		
-00004a e00b                      	LDI		R16,0b1011	;displaying Middle bit1 
-00004b bb02                      	OUT		PORTD,R16
-00004c 2f05                      	MOV		R16,R21
-00004d 940e 0080                 	CALL	CONVERT
-00004f bb05                      	OUT		PORTC,R16
-000050 940e 0076                 	CALL	DELAY
-                                 
-000052 e007                      	LDI		R16,0b0111	;displaying LSB
-000053 bb02                      	OUT		PORTD,R16
-000054 2f04                      	MOV		R16,R20
-000055 940e 0080                 	CALL	CONVERT
-000057 bb05                      	OUT		PORTC,R16
-000058 940e 0076                 	CALL	DELAY
-                                 		
-00005a b309                      	IN		R16,PINA
-00005b 3000                      	CPI 	R16,0
-00005c f021                      	BREQ 	SET_VALUE
-                                 		
-00005d e0a1                      	LDI		R26,1			
-00005e e0ba                      	LDI		R27,0x0A
-00005f e0c0                      	LDI		R28,0
-                                 		
-000060 cfd9                      	RJMP	E1
-                                 
-                                 
-                                 SET_VALUE:
-000061 efaf                      	LDI		R26,-1
-000062 efbf                      	LDI		R27,-1
-000063 e0c9                      	LDI		R28,9
-000064 cfd5                      	RJMP	E1
-                                 
-                                 
-                                 OC1Aaddr_ROUTINE:	
-000065 0f4a                      	Add  	R20, R26
-000066 174b                      	CP   	R20, R27
-000067 f469                      	BRNE 	E2
-                                 		
-000068 2f4c                      	MOV  	R20, R28
-000069 0f5a                      	Add  	R21, R26
-00006a 175b                      	CP   	R21, R27
-00006b f449                      	BRNE 	E2
-                                 		
-00006c 2f5c                      	MOV 	R21, R28
-00006d 0f6a                      	Add  	R22, R26
-00006e 176b                      	CP   	R22 ,R27
-00006f f429                      	BRNE 	E2
-                                 	
-000070 2f6c                      	MOV  	R22, R28
-000071 0f7a                      	Add  	R23, R26
-000072 177b                      	CP   	R23, R27
-000073 f409                      	BRNE	E2
-                                 		
-000074 2f7c                      	MOV  	R23, R28
-                                 
-                                 
-                                 E2:  
-000075 9518                      	RETI
-                                 
-                                 
-                                 DELAY:	
-000076 e011                      	LDI		R17,0x01
-000077 ef2f                      L1:	LDI		R18,0xFF
-000078 ea3a                      L2:	LDI		R19,0xAA
-000079 953a                      L3:	DEC		R19
-00007a f7f1                      	BRNE	L3
-00007b 952a                      	DEC		R18
-00007c f7d9                      	BRNE	L2
-00007d 951a                      	DEC		R17
-00007e f7c1                      	BRNE	L1
-00007f 9508                      	RET				
-                                 
-                                 
-                                 ;converts a digit to 7seg code 
-                                 CONVERT:	
-000080 3000                      	CPI		R16,0
-000081 f411                      	BRNE	C1
-000082 e30f                      	LDI		R16,0x3F
-000083 9508                      	RET
-                                 
-000084 3001                      C1:	CPI		R16,1
-000085 f411                      	BRNE	C2
-000086 e006                      	LDI		R16,0x06
-000087 9508                      	RET
-                                 
-000088 3002                      C2:	CPI		R16,2
-000089 f411                      	BRNE	C3
-00008a e50b                      	LDI		R16,0x5B
-00008b 9508                      	RET
-                                 
-00008c 3003                      C3:	CPI		R16,3
-00008d f411                      	BRNE	C4
-00008e e40f                      	LDI		R16,0x4F
-00008f 9508                      	RET
-                                 
-000090 3004                      C4:	CPI		R16,4
-000091 f411                      	BRNE	C5
-000092 e606                      	LDI		R16,0x66
-000093 9508                      	RET
-                                 
-000094 3005                      C5:	CPI		R16,5
-000095 f411                      	BRNE	C6
-000096 e60d                      	LDI		R16,0x6D
-000097 9508                      	RET
-                                 
-000098 3006                      C6:	CPI		R16,6
-000099 f411                      	BRNE	C7
-00009a e70d                      	LDI		R16,0x7D
-00009b 9508                      	RET
-                                 
-00009c 3007                      C7:	CPI		R16,7
-00009d f411                      	BRNE	C8
-00009e e007                      	LDI		R16,0x07
-00009f 9508                      	RET
-                                 
-0000a0 3008                      C8:	CPI		R16,8
-0000a1 f411                      	BRNE	C9
-0000a2 e70f                      	LDI		R16,0x7F
-0000a3 9508                      	RET
-                                 
-0000a4 3009                      C9:	CPI		R16,9
-0000a5 f409                      	BRNE	C10
-0000a6 e60f                      	LDI		R16,0x6F
                                  
 
 
@@ -1100,37 +1094,37 @@ counted separately from r26..r31 here.
 "ATmega32" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  52 r17:   2 r18:   2 r19:   2 r20:   6 
-r21:   6 r22:   6 r23:   6 r24:   1 r25:  10 r26:   8 r27:   8 r28:   8 
-r29:   0 r30:   0 r31:   0 
+r13:   0 r14:   0 r15:   0 r16:  60 r17:   5 r18:   3 r19:   0 r20:   3 
+r21:   3 r22:   3 r23:   4 r24:   5 r25:   2 r26:   0 r27:   5 r28:   8 
+r29:   0 r30:  13 r31:   9 
 Registers used: 13 out of 35 (37.1%)
 
 "ATmega32" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   0 add   :   4 adiw  :   0 and   :   0 
+.lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   2 brge  :   0 brhc  :   0 
-brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :  17 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   8 cbi   :   0 cbr   :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
+brhs  :   0 brid  :   0 brie  :   0 brlo  :   2 brlt  :   0 brmi  :   0 
+brne  :  23 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :   4 cbi   :   0 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
-clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   4 cpc   :   0 
-cpi   :  12 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   2 inc   :   0 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :  48 lds   :   0 lpm   :   0 lsl   :   0 
-lsr   :   0 mov   :   8 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :  20 pop   :   0 
-push  :   0 rcall :   0 ret   :  11 reti  :   1 rjmp  :   6 rol   :   0 
+clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
+cpi   :  25 cpse  :   0 dec   :   2 eor   :   0 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   5 jmp   :   0 
+ld    :   0 ldd   :   0 ldi   :  43 lds   :   0 lpm   :   0 lsl   :   1 
+lsr   :   0 mov   :  10 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
+neg   :   0 nop   :   6 or    :   0 ori   :   0 out   :  22 pop   :   0 
+push  :   0 rcall :   0 ret   :  10 reti  :   7 rjmp  :  10 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
-sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 15 out of 113 (13.3%)
+sub   :   2 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
+Instructions used: 17 out of 113 (15.0%)
 
 "ATmega32" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000150    310      0    310   32768   0.9%
+[.cseg] 0x000000 0x00035c    356      0    356   32768   1.1%
 [.dseg] 0x000060 0x000060      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
