@@ -284,9 +284,9 @@
 ;PCODE: $00000049 VOL: 0
 ; 0000 00C3 
 ; 0000 00C4 
-; 0000 00C5     while(1) {
+; 0000 00C5    while(1) {
 ;PCODE: $0000004A VOL: 0
-; 0000 00C6         for(s=8; s<72; s++) {
+; 0000 00C6         for(s=72; s>=8; s--) {    // Iterate from right to left
 ;PCODE: $0000004B VOL: 0
 ;PCODE: $0000004C VOL: 0
 ;PCODE: $0000004D VOL: 0

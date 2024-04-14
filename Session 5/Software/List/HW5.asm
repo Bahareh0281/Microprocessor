@@ -1455,18 +1455,18 @@ _main:
 	OUT  0x30,R30
 ; 0000 00C3 
 ; 0000 00C4 
-; 0000 00C5     while(1) {
+; 0000 00C5    while(1) {
 _0x5:
-; 0000 00C6         for(s=8; s<72; s++) {
-	LDI  R30,LOW(8)
-	LDI  R31,HIGH(8)
-	MOVW R4,R30
-_0x9:
+; 0000 00C6         for(s=72; s>=8; s--) {    // Iterate from right to left
 	LDI  R30,LOW(72)
 	LDI  R31,HIGH(72)
+	MOVW R4,R30
+_0x9:
+	LDI  R30,LOW(8)
+	LDI  R31,HIGH(8)
 	CP   R4,R30
 	CPC  R5,R31
-	BRLO PC+3
+	BRSH PC+3
 	JMP _0xA
 ; 0000 00C7             for(timer=0; timer<4; timer++) {
 	CLR  R8
@@ -1548,7 +1548,7 @@ _0x13:
 _0xD:
 ; 0000 00D6         }
 	MOVW R30,R4
-	ADIW R30,1
+	SBIW R30,1
 	MOVW R4,R30
 	RJMP _0x9
 _0xA:
