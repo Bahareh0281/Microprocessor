@@ -194,8 +194,8 @@ void main(void) {
     SFIOR=0x00;
 
 
-    while(1) {  
-        for(s=8; s<72; s++) {
+   while(1) {  
+        for(s=72; s>=8; s--) {    // Iterate from right to left
             for(timer=0; timer<4; timer++) {    
                 for (col=0;col<16;col++) {   
                     PORTB = PORT[col];
