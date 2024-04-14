@@ -1068,6 +1068,11 @@ __DELAY_USW_LOOP:
 	ADD  R31,R0
 	.ENDM
 
+;NAME DEFINITIONS FOR GLOBAL VARIABLES ALLOCATED TO REGISTERS
+	.DEF _s=R4
+	.DEF _col=R6
+	.DEF _timer=R8
+
 	.CSEG
 	.ORG 0x00
 
@@ -1098,21 +1103,25 @@ __START_OF_CODE:
 	JMP  0x00
 
 _0x3:
-	.DB  0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF
-	.DB  0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF
-	.DB  0x7,0x3,0xD9,0xDC,0xD9,0x3,0x7,0xFF
-	.DB  0x0,0x0,0x6E,0x6E,0x6E,0x6E,0x11,0xFF
-	.DB  0xC3,0x81,0x3C,0x7E,0x7E,0x7E,0xBD,0xFF
-	.DB  0x0,0x0,0x7E,0x7E,0x7E,0xBD,0xC3,0xFF
-	.DB  0x0,0x0,0x76,0x76,0x76,0x76,0x7E,0xFF
-	.DB  0x0,0x0,0xF6,0xF6,0xF6,0xF6,0xFE,0xFF
-	.DB  0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF
-	.DB  0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF
+	.DB  0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0
+	.DB  0x0,0x0,0x0,0x0,0x0,0x0,0x7C,0x12
+	.DB  0x11,0x12,0x7C,0x0,0x0,0x0,0x0,0x7F
+	.DB  0x49,0x49,0x49,0x36,0x0,0x0,0x0,0x3E
+	.DB  0x41,0x41,0x41,0x22,0x0,0x0,0x0,0x7F
+	.DB  0x41,0x41,0x41,0x3E,0x0,0x0,0x0,0x0
+	.DB  0x0,0x7F,0x49,0x49,0x49,0x49,0x0,0x0
+	.DB  0x0,0x0,0x0,0x7F,0x9,0x9,0x9
+_0x4:
+	.DB  0x1,0x2,0x4,0x8,0x10,0x20,0x40,0x80
 
 __GLOBAL_INI_TBL:
-	.DW  0x4F
-	.DW  _image_code
+	.DW  0x3F
+	.DW  _CODE
 	.DW  _0x3*2
+
+	.DW  0x08
+	.DW  _PORT
+	.DW  _0x4*2
 
 _0xFFFFFFFF:
 	.DW  0
@@ -1216,7 +1225,6 @@ __GLOBAL_INI_END:
 ;External RAM size       : 0
 ;Data Stack size         : 512
 ;*****************************************************/
-;
 ;#include <mega32.h>
 	#ifndef __SLEEP_DEFINED__
 	#define __SLEEP_DEFINED__
@@ -1231,291 +1239,342 @@ __GLOBAL_INI_END:
 	#endif
 ;#include <delay.h>
 ;
-;
-;const unsigned char image_code[79]=
-;{
-;    0xFF,    //    0001        # # # # # # # #
-;    0xFF,    //    0002        # # # # # # # #
-;    0xFF,    //    0003        # # # # # # # #
-;    0xFF,    //    0004        # # # # # # # #
-;    0xFF,    //    0005        # # # # # # # #
-;    0xFF,    //    0006        # # # # # # # #
-;    0xFF,    //    0007        # # # # # # # #
-;    0xFF,    //    0008        # # # # # # # #
-;    0xFF,    //    0009        # # # # # # # #
-;    0xFF,    //    000A        # # # # # # # #
-;    0xFF,    //    000B        # # # # # # # #
-;    0xFF,    //    000C        # # # # # # # #
-;    0xFF,    //    000D        # # # # # # # #
-;    0xFF,    //    000E        # # # # # # # #
-;    0xFF,    //    000F        # # # # # # # #
-;    0xFF,    //    0010        # # # # # # # #
-;    0x07,    //    0011        . . . . . # # #
-;    0x03,    //    0012        . . . . . . # #
-;    0xD9,    //    0013        # # . # # . . #
-;    0xDC,    //    0014        # # . # # # . .
-;    0xD9,    //    0015        # # . # # . . #
-;    0x03,    //    0016        . . . . . . # #
-;    0x07,    //    0017        . . . . . # # #
-;    0xFF,    //    0018        # # # # # # # #
+;unsigned char CODE[]= {
+;    0x00,    //    0002        . . . . . . . .
+;    0x00,    //    0003        . . . . . . . .
+;    0x00,    //    0004        . . . . . . . .
+;    0x00,    //    0005        . . . . . . . .
+;    0x00,    //    0006        . . . . . . . .
+;    0x00,    //    0007        . . . . . . . .
+;    0x00,    //    0008        . . . . . . . .
+;    0x00,    //    0002        . . . . . . . .
+;    0x00,    //    0003        . . . . . . . .
+;    0x00,    //    0004        . . . . . . . .
+;    0x00,    //    0005        . . . . . . . .
+;    0x00,    //    0006        . . . . . . . .
+;    0x00,    //    0007        . . . . . . . .
+;    0x00,    //    0008        . . . . . . . .
+;    0x7C,    //    0009        . # # # # # . .
+;    0x12,    //    000A        . . . # . . # .
+;    0x11,    //    000B        . . . # . . . #
+;    0x12,    //    000C        . . . # . . # .
+;    0x7C,    //    000D        . # # # # # . .
+;    0x00,    //    000E        . . . . . . . .
+;    0x00,    //    000F        . . . . . . . .
+;    0x00,    //    0010        . . . . . . . .
+;    0x00,    //    0011        . . . . . . . .
+;    0x7F,    //    0012        . # # # # # # #
+;    0x49,    //    0013        . # . . # . . #
+;    0x49,    //    0014        . # . . # . . #
+;    0x49,    //    0015        . # . . # . . #
+;    0x36,    //    0016        . . # # . # # .
+;    0x00,    //    0017        . . . . . . . .
+;    0x00,    //    0018        . . . . . . . .
 ;    0x00,    //    0019        . . . . . . . .
-;    0x00,    //    001A        . . . . . . . .
-;    0x6E,    //    001B        . # # . # # # .
-;    0x6E,    //    001C        . # # . # # # .
-;    0x6E,    //    001D        . # # . # # # .
-;    0x6E,    //    001E        . # # . # # # .
-;    0x11,    //    001F        . . . # . . . #
-;    0xFF,    //    0020        # # # # # # # #
-;    0xC3,    //    0021        # # . . . . # #
-;    0x81,    //    0022        # . . . . . . #
-;    0x3C,    //    0023        . . # # # # . .
-;    0x7E,    //    0024        . # # # # # # .
-;    0x7E,    //    0025        . # # # # # # .
-;    0x7E,    //    0026        . # # # # # # .
-;    0xBD,    //    0027        # . # # # # . #
-;    0xFF,    //    0028        # # # # # # # #
+;    0x3E,    //    001A        . . # # # # # .
+;    0x41,    //    001B        . # . . . . . #
+;    0x41,    //    001C        . # . . . . . #
+;    0x41,    //    001D        . # . . . . . #
+;    0x22,    //    001E        . . # . . . # .
+;    0x00,    //    001F        . . . . . . . .
+;    0x00,    //    0020        . . . . . . . .
+;    0x00,    //    0021        . . . . . . . .
+;    0x7F,    //    0022        . # # # # # # #
+;    0x41,    //    0023        . # . . . . . #
+;    0x41,    //    0024        . # . . . . . #
+;    0x41,    //    0025        . # . . . . . #
+;    0x3E,    //    0026        . . # # # # # .
+;    0x00,    //    0027        . . . . . . . .
+;    0x00,    //    0028        . . . . . . . .
 ;    0x00,    //    0029        . . . . . . . .
 ;    0x00,    //    002A        . . . . . . . .
-;    0x7E,    //    002B        . # # # # # # .
-;    0x7E,    //    002C        . # # # # # # .
-;    0x7E,    //    002D        . # # # # # # .
-;    0xBD,    //    002E        # . # # # # . #
-;    0xC3,    //    002F        # # . . . . # #
-;    0xFF,    //    0030        # # # # # # # #
+;    0x00,    //    002B        . . . . . . . .
+;    0x7F,    //    002C        . # # # # # # #
+;    0x49,    //    002D        . # . . # . . #
+;    0x49,    //    002E        . # . . # . . #
+;    0x49,    //    002F        . # . . # . . #
+;    0x49,    //    0030        . # . . # . . #
 ;    0x00,    //    0031        . . . . . . . .
 ;    0x00,    //    0032        . . . . . . . .
-;    0x76,    //    0033        . # # # . # # .
-;    0x76,    //    0034        . # # # . # # .
-;    0x76,    //    0035        . # # # . # # .
-;    0x76,    //    0036        . # # # . # # .
-;    0x7E,    //    0037        . # # # # # # .
-;    0xFF,    //    0038        # # # # # # # #
-;    0x00,    //    0039        . . . . . . . .
+;    0x00,    //    0033        . . . . . . . .
+;    0x00,    //    0034        . . . . . . . .
+;    0x00,    //    0035        . . . . . . . .
+;    0x7F,    //    0036        . # # # # # # #
+;    0x09,    //    0037        . . . . # . . #
+;    0x09,    //    0038        . . . . # . . #
+;    0x09,    //    0039        . . . . # . . #
 ;    0x00,    //    003A        . . . . . . . .
-;    0xF6,    //    003B        # # # # . # # .
-;    0xF6,    //    003C        # # # # . # # .
-;    0xF6,    //    003D        # # # # . # # .
-;    0xF6,    //    003E        # # # # . # # .
-;    0xFE,    //    003F        # # # # # # # .
-;    0xFF,    //    0040        # # # # # # # #
-;    0xFF,    //    0041        # # # # # # # #
-;    0xFF,    //    0042        # # # # # # # #
-;    0xFF,    //    0043        # # # # # # # #
-;    0xFF,    //    0044        # # # # # # # #
-;    0xFF,    //    0045        # # # # # # # #
-;    0xFF,    //    0046        # # # # # # # #
-;    0xFF,    //    0047        # # # # # # # #
-;    0xFF,    //    0048        # # # # # # # #
-;    0xFF,    //    0049        # # # # # # # #
-;    0xFF,    //    004A        # # # # # # # #
-;    0xFF,    //    004B        # # # # # # # #
-;    0xFF,    //    004C        # # # # # # # #
-;    0xFF,    //    004D        # # # # # # # #
-;    0xFF,    //    004E        # # # # # # # #
-;    0xFF     //    004F        # # # # # # # #
-;};
+;    0x00,    //    003B        . . . . . . . .
+;    0x00,    //    003C        . . . . . . . .
+;    0x00,    //    003D        . . . . . . . .
+;    0x00,    //    003E        . . . . . . . .
+;    0x00,    //    003F        . . . . . . . .
+;    0x00,    //    0040        . . . . . . . .
+;    0x00,    //    0041        . . . . . . . .
+;    0x00,    //    0042        . . . . . . . .
+;    0x00,    //    0043        . . . . . . . .
+;    0x00,    //    0044        . . . . . . . .
+;    0x00,    //    0045        . . . . . . . .
+;    0x00,    //    0046        . . . . . . . .
+;    0x00,    //    0047        . . . . . . . .
+;    0x00     //    0048        . . . . . . .
+;    };
 
 	.DSEG
-;void main(void)
-; 0000 006F {
+;
+;unsigned char PORT[16] = {1, 2, 4, 8, 16, 32, 64, 128, 0, 0, 0, 0, 0, 0, 0, 0};
+;unsigned int s, col, timer;
+;
+;void main(void) {
+; 0000 006E void main(void) {
 
 	.CSEG
 _main:
-; 0000 0070 // Declare your local variables here
-; 0000 0071   unsigned char Col,Scan,Refresh,Index,S;
-; 0000 0072 
-; 0000 0073 PORTA=0x00;
-;	Col -> R17
-;	Scan -> R16
-;	Refresh -> R19
-;	Index -> R18
-;	S -> R21
+; 0000 006F     // Declare your local variables here
+; 0000 0070 
+; 0000 0071     // Input/Output Ports initialization
+; 0000 0072     // Port A initialization
+; 0000 0073     // Func7=In Func6=In Func5=In Func4=In Func3=In Func2=In Func1=In Func0=In
+; 0000 0074     // State7=T State6=T State5=T State4=T State3=T State2=T State1=T State0=T
+; 0000 0075     PORTA=0x00;
 	LDI  R30,LOW(0)
 	OUT  0x1B,R30
-; 0000 0074 DDRA=0x00;
+; 0000 0076     DDRA=0x00;
 	OUT  0x1A,R30
-; 0000 0075 
-; 0000 0076 PORTB=0x00;
+; 0000 0077 
+; 0000 0078     // Port B initialization
+; 0000 0079     // Func7=Out Func6=Out Func5=Out Func4=Out Func3=Out Func2=Out Func1=Out Func0=Out
+; 0000 007A     // State7=0 State6=0 State5=0 State4=0 State3=0 State2=0 State1=0 State0=0
+; 0000 007B     PORTB=0x00;
 	OUT  0x18,R30
-; 0000 0077 DDRB=0xFF;
+; 0000 007C     DDRB=0xFF;
 	LDI  R30,LOW(255)
 	OUT  0x17,R30
-; 0000 0078 
-; 0000 0079 PORTC=0x00;
+; 0000 007D 
+; 0000 007E     // Port C initialization
+; 0000 007F     // Func7=Out Func6=Out Func5=Out Func4=Out Func3=Out Func2=Out Func1=Out Func0=Out
+; 0000 0080     // State7=0 State6=0 State5=0 State4=0 State3=0 State2=0 State1=0 State0=0
+; 0000 0081     PORTC=0x00;
 	LDI  R30,LOW(0)
 	OUT  0x15,R30
-; 0000 007A DDRC=0xFF;
+; 0000 0082     DDRC=0xFF;
 	LDI  R30,LOW(255)
 	OUT  0x14,R30
-; 0000 007B 
-; 0000 007C PORTD=0x00;
+; 0000 0083 
+; 0000 0084     // Port D initialization
+; 0000 0085     // Func7=Out Func6=Out Func5=Out Func4=Out Func3=Out Func2=Out Func1=Out Func0=Out
+; 0000 0086     // State7=0 State6=0 State5=0 State4=0 State3=0 State2=0 State1=0 State0=0
+; 0000 0087     PORTD=0x00;
 	LDI  R30,LOW(0)
 	OUT  0x12,R30
-; 0000 007D DDRD=0xFF;
+; 0000 0088     DDRD=0xFF;
 	LDI  R30,LOW(255)
 	OUT  0x11,R30
-; 0000 007E 
-; 0000 007F TCCR0=0x00;
+; 0000 0089 
+; 0000 008A     // Timer/Counter 0 initialization
+; 0000 008B     // Clock source: System Clock
+; 0000 008C     // Clock value: Timer 0 Stopped
+; 0000 008D     // Mode: Normal top=FFh
+; 0000 008E     // OC0 output: Disconnected
+; 0000 008F     TCCR0=0x00;
 	LDI  R30,LOW(0)
 	OUT  0x33,R30
-; 0000 0080 TCNT0=0x00;
+; 0000 0090     TCNT0=0x00;
 	OUT  0x32,R30
-; 0000 0081 OCR0=0x00;
+; 0000 0091     OCR0=0x00;
 	OUT  0x3C,R30
-; 0000 0082 
-; 0000 0083 
-; 0000 0084 TCCR1A=0x00;
+; 0000 0092 
+; 0000 0093     // Timer/Counter 1 initialization
+; 0000 0094     // Clock source: System Clock
+; 0000 0095     // Clock value: Timer1 Stopped
+; 0000 0096     // Mode: Normal top=FFFFh
+; 0000 0097     // OC1A output: Discon.
+; 0000 0098     // OC1B output: Discon.
+; 0000 0099     // Noise Canceler: Off
+; 0000 009A     // Input Capture on Falling Edge
+; 0000 009B     // Timer1 Overflow Interrupt: Off
+; 0000 009C     // Input Capture Interrupt: Off
+; 0000 009D     // Compare A Match Interrupt: Off
+; 0000 009E     // Compare B Match Interrupt: Off
+; 0000 009F     TCCR1A=0x00;
 	OUT  0x2F,R30
-; 0000 0085 TCCR1B=0x00;
+; 0000 00A0     TCCR1B=0x00;
 	OUT  0x2E,R30
-; 0000 0086 TCNT1H=0x00;
+; 0000 00A1     TCNT1H=0x00;
 	OUT  0x2D,R30
-; 0000 0087 TCNT1L=0x00;
+; 0000 00A2     TCNT1L=0x00;
 	OUT  0x2C,R30
-; 0000 0088 ICR1H=0x00;
+; 0000 00A3     ICR1H=0x00;
 	OUT  0x27,R30
-; 0000 0089 ICR1L=0x00;
+; 0000 00A4     ICR1L=0x00;
 	OUT  0x26,R30
-; 0000 008A OCR1AH=0x00;
+; 0000 00A5     OCR1AH=0x00;
 	OUT  0x2B,R30
-; 0000 008B OCR1AL=0x00;
+; 0000 00A6     OCR1AL=0x00;
 	OUT  0x2A,R30
-; 0000 008C OCR1BH=0x00;
+; 0000 00A7     OCR1BH=0x00;
 	OUT  0x29,R30
-; 0000 008D OCR1BL=0x00;
+; 0000 00A8     OCR1BL=0x00;
 	OUT  0x28,R30
-; 0000 008E 
-; 0000 008F ASSR=0x00;
+; 0000 00A9 
+; 0000 00AA     // Timer/Counter 2 initialization
+; 0000 00AB     // Clock source: System Clock
+; 0000 00AC     // Clock value: Timer2 Stopped
+; 0000 00AD     // Mode: Normal top=FFh
+; 0000 00AE     // OC2 output: Disconnected
+; 0000 00AF     ASSR=0x00;
 	OUT  0x22,R30
-; 0000 0090 TCCR2=0x00;
+; 0000 00B0     TCCR2=0x00;
 	OUT  0x25,R30
-; 0000 0091 TCNT2=0x00;
+; 0000 00B1     TCNT2=0x00;
 	OUT  0x24,R30
-; 0000 0092 OCR2=0x00;
+; 0000 00B2     OCR2=0x00;
 	OUT  0x23,R30
-; 0000 0093 
-; 0000 0094 // External Interrupt(s) initialization
-; 0000 0095 // INT0: Off
-; 0000 0096 // INT1: Off
-; 0000 0097 // INT2: Off
-; 0000 0098 MCUCR=0x00;
+; 0000 00B3 
+; 0000 00B4     // External Interrupt(s) initialization
+; 0000 00B5     // INT0: Off
+; 0000 00B6     // INT1: Off
+; 0000 00B7     // INT2: Off
+; 0000 00B8     MCUCR=0x00;
 	OUT  0x35,R30
-; 0000 0099 MCUCSR=0x00;
+; 0000 00B9     MCUCSR=0x00;
 	OUT  0x34,R30
-; 0000 009A 
-; 0000 009B // Timer(s)/Counter(s) Interrupt(s) initialization
-; 0000 009C TIMSK=0x00;
+; 0000 00BA 
+; 0000 00BB     // Timer(s)/Counter(s) Interrupt(s) initialization
+; 0000 00BC     TIMSK=0x00;
 	OUT  0x39,R30
-; 0000 009D 
-; 0000 009E // Analog Comparator initialization
-; 0000 009F // Analog Comparator: Off
-; 0000 00A0 // Analog Comparator Input Capture by Timer/Counter 1: Off
-; 0000 00A1 ACSR=0x80;
+; 0000 00BD 
+; 0000 00BE     // Analog Comparator initialization
+; 0000 00BF     // Analog Comparator: Off
+; 0000 00C0     // Analog Comparator Input Capture by Timer/Counter 1: Off
+; 0000 00C1     ACSR=0x80;
 	LDI  R30,LOW(128)
 	OUT  0x8,R30
-; 0000 00A2 SFIOR=0x00;
+; 0000 00C2     SFIOR=0x00;
 	LDI  R30,LOW(0)
 	OUT  0x30,R30
-; 0000 00A3 while (1)
-_0x4:
-; 0000 00A4       {
-; 0000 00A5       // Place your code here
-; 0000 00A6 
-; 0000 00A7            for(S=8;S<72;S++)
-	LDI  R21,LOW(8)
-_0x8:
-	CPI  R21,72
-	BRSH _0x9
-; 0000 00A8         {
-; 0000 00A9           for(Refresh=0;Refresh<5;Refresh++)
-	LDI  R19,LOW(0)
-_0xB:
-	CPI  R19,5
-	BRSH _0xC
-; 0000 00AA           {
-; 0000 00AB           Scan=0b00000001;
-	LDI  R16,LOW(1)
-; 0000 00AC           for(Col=0;Col<8;Col++)
-	LDI  R17,LOW(0)
-_0xE:
-	CPI  R17,8
-	BRSH _0xF
-; 0000 00AD           {
-; 0000 00AE 
-; 0000 00AF 
-; 0000 00B0           Index=Col+S;
-	MOV  R30,R21
-	ADD  R30,R17
-	MOV  R18,R30
-; 0000 00B1           PORTB=Scan;
-	OUT  0x18,R16
-; 0000 00B2           PORTC=image_code[Index] ;
-	MOV  R30,R18
-	LDI  R31,0
-	SUBI R30,LOW(-_image_code)
-	SBCI R31,HIGH(-_image_code)
-	LD   R30,Z
-	OUT  0x15,R30
-; 0000 00B3               delay_ms(4);
-	LDI  R26,LOW(4)
-	RCALL SUBOPT_0x0
-; 0000 00B4           PORTB=0x00;
-	OUT  0x18,R30
-; 0000 00B5           PORTD=Scan;
-	OUT  0x12,R16
-; 0000 00B6           PORTC=image_code[Index-8] ;
-	MOV  R30,R18
-	LDI  R31,0
-	SBIW R30,8
-	SUBI R30,LOW(-_image_code)
-	SBCI R31,HIGH(-_image_code)
-	LD   R30,Z
-	OUT  0x15,R30
-; 0000 00B7           delay_ms(2);
-	LDI  R26,LOW(2)
-	RCALL SUBOPT_0x0
-; 0000 00B8 
-; 0000 00B9            PORTD=0x00;
-	OUT  0x12,R30
-; 0000 00BA          Scan=Scan<<1;
-	LSL  R16
-; 0000 00BB          }
-	SUBI R17,-1
-	RJMP _0xE
-_0xF:
-; 0000 00BC 
-; 0000 00BD 
-; 0000 00BE 
-; 0000 00BF           }
-	SUBI R19,-1
-	RJMP _0xB
-_0xC:
-; 0000 00C0           }
-	SUBI R21,-1
-	RJMP _0x8
-_0x9:
-; 0000 00C1 
-; 0000 00C2 
 ; 0000 00C3 
 ; 0000 00C4 
-; 0000 00C5 
-; 0000 00C6       };
-	RJMP _0x4
-; 0000 00C7 }
+; 0000 00C5     while(1) {
+_0x5:
+; 0000 00C6         for(s=8; s<72; s++) {
+	LDI  R30,LOW(8)
+	LDI  R31,HIGH(8)
+	MOVW R4,R30
+_0x9:
+	LDI  R30,LOW(72)
+	LDI  R31,HIGH(72)
+	CP   R4,R30
+	CPC  R5,R31
+	BRLO PC+3
+	JMP _0xA
+; 0000 00C7             for(timer=0; timer<4; timer++) {
+	CLR  R8
+	CLR  R9
+_0xC:
+	LDI  R30,LOW(4)
+	LDI  R31,HIGH(4)
+	CP   R8,R30
+	CPC  R9,R31
+	BRSH _0xD
+; 0000 00C8                 for (col=0;col<16;col++) {
+	CLR  R6
+	CLR  R7
+_0xF:
+	LDI  R30,LOW(16)
+	LDI  R31,HIGH(16)
+	CP   R6,R30
+	CPC  R7,R31
+	BRSH _0x10
+; 0000 00C9                     PORTB = PORT[col];
+	LDI  R26,LOW(_PORT)
+	LDI  R27,HIGH(_PORT)
+	ADD  R26,R6
+	ADC  R27,R7
+	LD   R30,X
+	OUT  0x18,R30
+; 0000 00CA                     PORTC = ~CODE[s+col];
+	MOVW R30,R6
+	ADD  R30,R4
+	ADC  R31,R5
+	RCALL SUBOPT_0x0
+; 0000 00CB                     delay_ms(1);
+; 0000 00CC                 }
+	MOVW R30,R6
+	ADIW R30,1
+	MOVW R6,R30
+	RJMP _0xF
 _0x10:
-	RJMP _0x10
-
-	.DSEG
-_image_code:
-	.BYTE 0x4F
-
-	.CSEG
-;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x0:
+; 0000 00CD 
+; 0000 00CE                 delay_ms(2);
+	LDI  R26,LOW(2)
 	LDI  R27,0
 	CALL _delay_ms
-	LDI  R30,LOW(0)
-	RET
+; 0000 00CF 
+; 0000 00D0                 for (col=0; col<16; col++) {
+	CLR  R6
+	CLR  R7
+_0x12:
+	LDI  R30,LOW(16)
+	LDI  R31,HIGH(16)
+	CP   R6,R30
+	CPC  R7,R31
+	BRSH _0x13
+; 0000 00D1                     PORTD = PORT[col];
+	LDI  R26,LOW(_PORT)
+	LDI  R27,HIGH(_PORT)
+	ADD  R26,R6
+	ADC  R27,R7
+	LD   R30,X
+	OUT  0x12,R30
+; 0000 00D2                     PORTC = ~CODE[s+col-8];
+	MOVW R30,R6
+	ADD  R30,R4
+	ADC  R31,R5
+	SBIW R30,8
+	RCALL SUBOPT_0x0
+; 0000 00D3                     delay_ms(1);
+; 0000 00D4                 }
+	MOVW R30,R6
+	ADIW R30,1
+	MOVW R6,R30
+	RJMP _0x12
+_0x13:
+; 0000 00D5             }
+	MOVW R30,R8
+	ADIW R30,1
+	MOVW R8,R30
+	RJMP _0xC
+_0xD:
+; 0000 00D6         }
+	MOVW R30,R4
+	ADIW R30,1
+	MOVW R4,R30
+	RJMP _0x9
+_0xA:
+; 0000 00D7     };
+	RJMP _0x5
+; 0000 00D8 }
+_0x14:
+	RJMP _0x14
+
+	.DSEG
+_CODE:
+	.BYTE 0x4E
+_PORT:
+	.BYTE 0x10
+
+	.CSEG
+;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:6 WORDS
+SUBOPT_0x0:
+	SUBI R30,LOW(-_CODE)
+	SBCI R31,HIGH(-_CODE)
+	LD   R30,Z
+	COM  R30
+	OUT  0x15,R30
+	LDI  R26,LOW(1)
+	LDI  R27,0
+	JMP  _delay_ms
 
 
 	.CSEG
