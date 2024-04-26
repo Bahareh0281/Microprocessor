@@ -83,60 +83,56 @@ void main(void) {
             while(keypad_scan() != 255); 
             delay_ms(20);
             
-            if (key_res == KEYPAD_DIV) {
-                lcd_putchar('%'); 
-                operand = '%'; 
-                count++; 
-            }
-          
-            else if (key_res == KEYPAD_MUL) {
-              lcd_putchar('*');  
-              operand = '*';   
-              count++; 
-            }                               
-            
-            else if (key_res == KEYPAD_MNS) {                     
-                lcd_putchar('-');
-                operand = '-';     
-                count++;    
-            }
+            switch (key_res) {
+        case KEYPAD_DIV:
+            lcd_putchar('%');
+            operand = '%';
+            count++;
+            break;
+        case KEYPAD_MUL:
+            lcd_putchar('*');
+            operand = '*';
+            count++;
+            break;
+        case KEYPAD_MNS:
+            lcd_putchar('-');
+            operand = '-';
+            count++;
+            break;
+        case KEYPAD_PLS:
+            lcd_putchar('+');
+            operand = '+';
+            count++;
+            break;
+        case KEYPAD_EQU:
+            if (operand == '+')
+                op_arr[2] = op_arr[0] + op_arr[1];
+            else if (operand == '-')
+                op_arr[2] = op_arr[0] - op_arr[1];
+            else if (operand == '%')
+                op_arr[2] = op_arr[0] / op_arr[1];
+            else if (operand == '*')
+                op_arr[2] = op_arr[0] * op_arr[1];
 
-            else if (key_res == KEYPAD_PLS) {
-                lcd_putchar('+');   
-                operand = '+';
-                count++; 
-            }         
-            
-            else if (key_res == KEYPAD_EQU) {                   
-                if(operand == '+')
-                    op_arr[2] = op_arr[0] + op_arr[1];
-                else if(operand == '-')
-                    op_arr[2] = op_arr[0] - op_arr[1];   
-                else if(operand == '%')
-                    op_arr[2] = op_arr[0] / op_arr[1];
-                else if(operand == '*')
-                    op_arr[2] = op_arr[0] * op_arr[1];    
-                                              
-                lcd_putchar('=');     
-                ftoa(op_arr[2],2,show_arr);
-                lcd_puts(show_arr);               
-            }        
-            
-            else if (key_res == KEYPAD_ON) {   
-                count = 0;  
-                op_arr[0] = 0;
-                op_arr[1] = 0;    
-                op_arr[2] = 0;
-                operand = '';
-                lcd_clear();
-                lcd_gotoxy(0,0);        
-            }            
-                               
-            else {
-                lcd_putchar(key_res + 48);
-                op_arr[count] *=10;
-                op_arr[count] += key_res;
-            }
+            lcd_putchar('=');
+            ftoa(op_arr[2], 2, show_arr);
+            lcd_puts(show_arr);
+            break;
+        case KEYPAD_ON:
+            count = 0;
+            op_arr[0] = 0;
+            op_arr[1] = 0;
+            op_arr[2] = 0;
+            operand = 0;
+            lcd_clear();
+            lcd_gotoxy(0, 0);
+            break;
+        default:
+            lcd_putchar(key_res + 48);
+            op_arr[count] *= 10;
+            op_arr[count] += key_res;
+            break;
+    }
         }
     }
 }

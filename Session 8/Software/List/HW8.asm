@@ -1104,7 +1104,7 @@ __START_OF_CODE:
 	JMP  0x00
 	JMP  0x00
 
-_0x5C:
+_0x5A:
 	.DB  0x0,0x0
 _0x0:
 	.DB  0x4B,0x45,0x59,0x50,0x41,0x44,0x20,0x41
@@ -1129,7 +1129,7 @@ __GLOBAL_INI_TBL:
 
 	.DW  0x02
 	.DW  0x06
-	.DW  _0x5C*2
+	.DW  _0x5A*2
 
 	.DW  0x02
 	.DW  __base_y_G100
@@ -1356,107 +1356,116 @@ _0x8:
 ; 0000 0054             delay_ms(20);
 	CALL SUBOPT_0x0
 ; 0000 0055 
-; 0000 0056             if (key_res == KEYPAD_DIV) {
-	CPI  R17,10
-	BRNE _0xB
-; 0000 0057                 lcd_putchar('%');
+; 0000 0056             switch (key_res) {
+	MOV  R30,R17
+	LDI  R31,0
+; 0000 0057         case KEYPAD_DIV:
+	CPI  R30,LOW(0xA)
+	LDI  R26,HIGH(0xA)
+	CPC  R31,R26
+	BRNE _0xE
+; 0000 0058             lcd_putchar('%');
 	LDI  R26,LOW(37)
 	RCALL _lcd_putchar
-; 0000 0058                 operand = '%';
+; 0000 0059             operand = '%';
 	LDI  R30,LOW(37)
 	CALL SUBOPT_0x1
-; 0000 0059                 count++;
-; 0000 005A             }
-; 0000 005B 
-; 0000 005C             else if (key_res == KEYPAD_MUL) {
-	RJMP _0xC
-_0xB:
-	CPI  R17,11
-	BRNE _0xD
-; 0000 005D               lcd_putchar('*');
+; 0000 005A             count++;
+; 0000 005B             break;
+	RJMP _0xD
+; 0000 005C         case KEYPAD_MUL:
+_0xE:
+	CPI  R30,LOW(0xB)
+	LDI  R26,HIGH(0xB)
+	CPC  R31,R26
+	BRNE _0xF
+; 0000 005D             lcd_putchar('*');
 	LDI  R26,LOW(42)
 	RCALL _lcd_putchar
-; 0000 005E               operand = '*';
+; 0000 005E             operand = '*';
 	LDI  R30,LOW(42)
 	CALL SUBOPT_0x1
-; 0000 005F               count++;
-; 0000 0060             }
-; 0000 0061 
-; 0000 0062             else if (key_res == KEYPAD_MNS) {
-	RJMP _0xE
-_0xD:
-	CPI  R17,13
-	BRNE _0xF
-; 0000 0063                 lcd_putchar('-');
+; 0000 005F             count++;
+; 0000 0060             break;
+	RJMP _0xD
+; 0000 0061         case KEYPAD_MNS:
+_0xF:
+	CPI  R30,LOW(0xD)
+	LDI  R26,HIGH(0xD)
+	CPC  R31,R26
+	BRNE _0x10
+; 0000 0062             lcd_putchar('-');
 	LDI  R26,LOW(45)
 	RCALL _lcd_putchar
-; 0000 0064                 operand = '-';
+; 0000 0063             operand = '-';
 	LDI  R30,LOW(45)
 	CALL SUBOPT_0x1
-; 0000 0065                 count++;
-; 0000 0066             }
-; 0000 0067 
-; 0000 0068             else if (key_res == KEYPAD_PLS) {
-	RJMP _0x10
-_0xF:
-	CPI  R17,12
+; 0000 0064             count++;
+; 0000 0065             break;
+	RJMP _0xD
+; 0000 0066         case KEYPAD_PLS:
+_0x10:
+	CPI  R30,LOW(0xC)
+	LDI  R26,HIGH(0xC)
+	CPC  R31,R26
 	BRNE _0x11
-; 0000 0069                 lcd_putchar('+');
+; 0000 0067             lcd_putchar('+');
 	LDI  R26,LOW(43)
 	RCALL _lcd_putchar
-; 0000 006A                 operand = '+';
+; 0000 0068             operand = '+';
 	LDI  R30,LOW(43)
 	CALL SUBOPT_0x1
-; 0000 006B                 count++;
-; 0000 006C             }
-; 0000 006D 
-; 0000 006E             else if (key_res == KEYPAD_EQU) {
-	RJMP _0x12
+; 0000 0069             count++;
+; 0000 006A             break;
+	RJMP _0xD
+; 0000 006B         case KEYPAD_EQU:
 _0x11:
-	CPI  R17,14
-	BRNE _0x13
-; 0000 006F                 if(operand == '+')
+	CPI  R30,LOW(0xE)
+	LDI  R26,HIGH(0xE)
+	CPC  R31,R26
+	BRNE _0x12
+; 0000 006C             if (operand == '+')
 	LDI  R30,LOW(43)
 	CP   R30,R5
-	BRNE _0x14
-; 0000 0070                     op_arr[2] = op_arr[0] + op_arr[1];
+	BRNE _0x13
+; 0000 006D                 op_arr[2] = op_arr[0] + op_arr[1];
 	CALL SUBOPT_0x2
 	CALL __ADDF12
-	RJMP _0x5B
-; 0000 0071                 else if(operand == '-')
-_0x14:
+	RJMP _0x59
+; 0000 006E             else if (operand == '-')
+_0x13:
 	LDI  R30,LOW(45)
 	CP   R30,R5
-	BRNE _0x16
-; 0000 0072                     op_arr[2] = op_arr[0] - op_arr[1];
+	BRNE _0x15
+; 0000 006F                 op_arr[2] = op_arr[0] - op_arr[1];
 	CALL SUBOPT_0x2
 	CALL SUBOPT_0x3
-	RJMP _0x5B
-; 0000 0073                 else if(operand == '%')
-_0x16:
+	RJMP _0x59
+; 0000 0070             else if (operand == '%')
+_0x15:
 	LDI  R30,LOW(37)
 	CP   R30,R5
-	BRNE _0x18
-; 0000 0074                     op_arr[2] = op_arr[0] / op_arr[1];
+	BRNE _0x17
+; 0000 0071                 op_arr[2] = op_arr[0] / op_arr[1];
 	CALL SUBOPT_0x2
 	CALL __DIVF21
-	RJMP _0x5B
-; 0000 0075                 else if(operand == '*')
-_0x18:
+	RJMP _0x59
+; 0000 0072             else if (operand == '*')
+_0x17:
 	LDI  R30,LOW(42)
 	CP   R30,R5
-	BRNE _0x1A
-; 0000 0076                     op_arr[2] = op_arr[0] * op_arr[1];
+	BRNE _0x19
+; 0000 0073                 op_arr[2] = op_arr[0] * op_arr[1];
 	CALL SUBOPT_0x2
 	CALL __MULF12
-_0x5B:
+_0x59:
 	__PUTD1MN _op_arr,8
-; 0000 0077 
-; 0000 0078                 lcd_putchar('=');
-_0x1A:
+; 0000 0074 
+; 0000 0075             lcd_putchar('=');
+_0x19:
 	LDI  R26,LOW(61)
 	RCALL _lcd_putchar
-; 0000 0079                 ftoa(op_arr[2],2,show_arr);
+; 0000 0076             ftoa(op_arr[2], 2, show_arr);
 	__GETD1MN _op_arr,8
 	CALL __PUTPARD1
 	LDI  R30,LOW(2)
@@ -1464,51 +1473,51 @@ _0x1A:
 	LDI  R26,LOW(_show_arr)
 	LDI  R27,HIGH(_show_arr)
 	CALL _ftoa
-; 0000 007A                 lcd_puts(show_arr);
+; 0000 0077             lcd_puts(show_arr);
 	LDI  R26,LOW(_show_arr)
 	LDI  R27,HIGH(_show_arr)
 	RCALL _lcd_puts
-; 0000 007B             }
-; 0000 007C 
-; 0000 007D             else if (key_res == KEYPAD_ON) {
-	RJMP _0x1B
-_0x13:
-	CPI  R17,15
-	BRNE _0x1C
-; 0000 007E                 count = 0;
+; 0000 0078             break;
+	RJMP _0xD
+; 0000 0079         case KEYPAD_ON:
+_0x12:
+	CPI  R30,LOW(0xF)
+	LDI  R26,HIGH(0xF)
+	CPC  R31,R26
+	BRNE _0x1B
+; 0000 007A             count = 0;
 	CLR  R6
 	CLR  R7
-; 0000 007F                 op_arr[0] = 0;
+; 0000 007B             op_arr[0] = 0;
 	LDI  R30,LOW(0)
 	STS  _op_arr,R30
 	STS  _op_arr+1,R30
 	STS  _op_arr+2,R30
 	STS  _op_arr+3,R30
-; 0000 0080                 op_arr[1] = 0;
+; 0000 007C             op_arr[1] = 0;
 	__POINTW1MN _op_arr,4
 	CALL SUBOPT_0x4
-; 0000 0081                 op_arr[2] = 0;
+; 0000 007D             op_arr[2] = 0;
 	__POINTW1MN _op_arr,8
 	CALL SUBOPT_0x4
-; 0000 0082                 operand = '';
+; 0000 007E             operand = 0;
 	CLR  R5
-; 0000 0083                 lcd_clear();
+; 0000 007F             lcd_clear();
 	RCALL _lcd_clear
-; 0000 0084                 lcd_gotoxy(0,0);
+; 0000 0080             lcd_gotoxy(0, 0);
 	LDI  R30,LOW(0)
 	ST   -Y,R30
 	LDI  R26,LOW(0)
 	RCALL _lcd_gotoxy
-; 0000 0085             }
-; 0000 0086 
-; 0000 0087             else {
-	RJMP _0x1D
-_0x1C:
-; 0000 0088                 lcd_putchar(key_res + 48);
+; 0000 0081             break;
+	RJMP _0xD
+; 0000 0082         default:
+_0x1B:
+; 0000 0083             lcd_putchar(key_res + 48);
 	MOV  R26,R17
 	SUBI R26,-LOW(48)
 	RCALL _lcd_putchar
-; 0000 0089                 op_arr[count] *=10;
+; 0000 0084             op_arr[count] *= 10;
 	CALL SUBOPT_0x5
 	PUSH R31
 	PUSH R30
@@ -1519,7 +1528,7 @@ _0x1C:
 	POP  R26
 	POP  R27
 	CALL __PUTDP1
-; 0000 008A                 op_arr[count] += key_res;
+; 0000 0085             op_arr[count] += key_res;
 	CALL SUBOPT_0x5
 	PUSH R31
 	PUSH R30
@@ -1534,20 +1543,16 @@ _0x1C:
 	POP  R26
 	POP  R27
 	CALL __PUTDP1
-; 0000 008B             }
-_0x1D:
-_0x1B:
-_0x12:
-_0x10:
-_0xE:
-_0xC:
-; 0000 008C         }
-; 0000 008D     }
+; 0000 0086             break;
+; 0000 0087     }
+_0xD:
+; 0000 0088         }
+; 0000 0089     }
 _0x7:
 	RJMP _0x4
-; 0000 008E }
-_0x1E:
-	RJMP _0x1E
+; 0000 008A }
+_0x1C:
+	RJMP _0x1C
 
 	.DSEG
 _0x3:
@@ -1555,164 +1560,164 @@ _0x3:
 ;
 ;
 ;unsigned char keypad_scan() {
-; 0000 0091 unsigned char keypad_scan() {
+; 0000 008D unsigned char keypad_scan() {
 
 	.CSEG
 _keypad_scan:
-; 0000 0092     unsigned char result=255;
-; 0000 0093 
-; 0000 0094     ////////////////////////  ROW1 ////////////////////////
-; 0000 0095     KEYPAD_R1 = 1; KEYPAD_R2 = 0;  KEYPAD_R3 = 0;  KEYPAD_R4 = 0; //set Row1 for Keypad
+; 0000 008E     unsigned char result=255;
+; 0000 008F 
+; 0000 0090     ////////////////////////  ROW1 ////////////////////////
+; 0000 0091     KEYPAD_R1 = 1; KEYPAD_R2 = 0;  KEYPAD_R3 = 0;  KEYPAD_R4 = 0; //set Row1 for Keypad
 	ST   -Y,R17
 ;	result -> R17
 	LDI  R17,255
 	SBI  0x12,0
 	CBI  0x12,1
 	CALL SUBOPT_0x7
-; 0000 0096     delay_ms(5);
-; 0000 0097     if (KEYPAD_C1)
+; 0000 0092     delay_ms(5);
+; 0000 0093     if (KEYPAD_C1)
 	SBIS 0x10,4
-	RJMP _0x27
-; 0000 0098     result = KEYPAD_NUM7;
+	RJMP _0x25
+; 0000 0094     result = KEYPAD_NUM7;
 	LDI  R17,LOW(7)
-; 0000 0099     else if (KEYPAD_C2)
+; 0000 0095     else if (KEYPAD_C2)
+	RJMP _0x26
+_0x25:
+	SBIS 0x10,5
+	RJMP _0x27
+; 0000 0096     result = KEYPAD_NUM8;
+	LDI  R17,LOW(8)
+; 0000 0097     else if (KEYPAD_C3)
 	RJMP _0x28
 _0x27:
-	SBIS 0x10,5
+	SBIS 0x10,6
 	RJMP _0x29
-; 0000 009A     result = KEYPAD_NUM8;
-	LDI  R17,LOW(8)
-; 0000 009B     else if (KEYPAD_C3)
+; 0000 0098     result = KEYPAD_NUM9;
+	LDI  R17,LOW(9)
+; 0000 0099     else if (KEYPAD_C4)
 	RJMP _0x2A
 _0x29:
-	SBIS 0x10,6
-	RJMP _0x2B
-; 0000 009C     result = KEYPAD_NUM9;
-	LDI  R17,LOW(9)
-; 0000 009D     else if (KEYPAD_C4)
-	RJMP _0x2C
-_0x2B:
 	SBIC 0x10,7
-; 0000 009E     result = KEYPAD_DIV;
+; 0000 009A     result = KEYPAD_DIV;
 	LDI  R17,LOW(10)
-; 0000 009F 
-; 0000 00A0     ////////////////////////  ROW2 ////////////////////////
-; 0000 00A1     KEYPAD_R1 = 0; KEYPAD_R2 = 1;  KEYPAD_R3 = 0;  KEYPAD_R4 = 0; //set Row2 for Keypad
-_0x2C:
+; 0000 009B 
+; 0000 009C     ////////////////////////  ROW2 ////////////////////////
+; 0000 009D     KEYPAD_R1 = 0; KEYPAD_R2 = 1;  KEYPAD_R3 = 0;  KEYPAD_R4 = 0; //set Row2 for Keypad
 _0x2A:
 _0x28:
+_0x26:
 	CBI  0x12,0
 	SBI  0x12,1
 	CALL SUBOPT_0x7
-; 0000 00A2     delay_ms(5);
-; 0000 00A3     if (KEYPAD_C1)
+; 0000 009E     delay_ms(5);
+; 0000 009F     if (KEYPAD_C1)
 	SBIS 0x10,4
-	RJMP _0x36
-; 0000 00A4     result = KEYPAD_NUM4;
+	RJMP _0x34
+; 0000 00A0     result = KEYPAD_NUM4;
 	LDI  R17,LOW(4)
-; 0000 00A5     else if (KEYPAD_C2)
+; 0000 00A1     else if (KEYPAD_C2)
+	RJMP _0x35
+_0x34:
+	SBIS 0x10,5
+	RJMP _0x36
+; 0000 00A2     result = KEYPAD_NUM5;
+	LDI  R17,LOW(5)
+; 0000 00A3     else if (KEYPAD_C3)
 	RJMP _0x37
 _0x36:
-	SBIS 0x10,5
+	SBIS 0x10,6
 	RJMP _0x38
-; 0000 00A6     result = KEYPAD_NUM5;
-	LDI  R17,LOW(5)
-; 0000 00A7     else if (KEYPAD_C3)
+; 0000 00A4     result = KEYPAD_NUM6;
+	LDI  R17,LOW(6)
+; 0000 00A5     else if (KEYPAD_C4)
 	RJMP _0x39
 _0x38:
-	SBIS 0x10,6
-	RJMP _0x3A
-; 0000 00A8     result = KEYPAD_NUM6;
-	LDI  R17,LOW(6)
-; 0000 00A9     else if (KEYPAD_C4)
-	RJMP _0x3B
-_0x3A:
 	SBIC 0x10,7
-; 0000 00AA     result = KEYPAD_MUL;
+; 0000 00A6     result = KEYPAD_MUL;
 	LDI  R17,LOW(11)
-; 0000 00AB 
-; 0000 00AC     ////////////////////////  ROW3 ////////////////////////
-; 0000 00AD     KEYPAD_R1 = 0; KEYPAD_R2 = 0;  KEYPAD_R3 = 1;  KEYPAD_R4 = 0; //set Row3 for Keypad
-_0x3B:
+; 0000 00A7 
+; 0000 00A8     ////////////////////////  ROW3 ////////////////////////
+; 0000 00A9     KEYPAD_R1 = 0; KEYPAD_R2 = 0;  KEYPAD_R3 = 1;  KEYPAD_R4 = 0; //set Row3 for Keypad
 _0x39:
 _0x37:
+_0x35:
 	CBI  0x12,0
 	CBI  0x12,1
 	SBI  0x12,2
 	CBI  0x12,3
-; 0000 00AE     delay_ms(5);
+; 0000 00AA     delay_ms(5);
 	CALL SUBOPT_0x8
-; 0000 00AF     if (KEYPAD_C1)
+; 0000 00AB     if (KEYPAD_C1)
 	SBIS 0x10,4
-	RJMP _0x45
-; 0000 00B0     result = KEYPAD_NUM1;
+	RJMP _0x43
+; 0000 00AC     result = KEYPAD_NUM1;
 	LDI  R17,LOW(1)
-; 0000 00B1     else if (KEYPAD_C2)
+; 0000 00AD     else if (KEYPAD_C2)
+	RJMP _0x44
+_0x43:
+	SBIS 0x10,5
+	RJMP _0x45
+; 0000 00AE     result = KEYPAD_NUM2;
+	LDI  R17,LOW(2)
+; 0000 00AF     else if (KEYPAD_C3)
 	RJMP _0x46
 _0x45:
-	SBIS 0x10,5
+	SBIS 0x10,6
 	RJMP _0x47
-; 0000 00B2     result = KEYPAD_NUM2;
-	LDI  R17,LOW(2)
-; 0000 00B3     else if (KEYPAD_C3)
+; 0000 00B0     result = KEYPAD_NUM3;
+	LDI  R17,LOW(3)
+; 0000 00B1     else if (KEYPAD_C4)
 	RJMP _0x48
 _0x47:
-	SBIS 0x10,6
-	RJMP _0x49
-; 0000 00B4     result = KEYPAD_NUM3;
-	LDI  R17,LOW(3)
-; 0000 00B5     else if (KEYPAD_C4)
-	RJMP _0x4A
-_0x49:
 	SBIC 0x10,7
-; 0000 00B6     result = KEYPAD_MNS;
+; 0000 00B2     result = KEYPAD_MNS;
 	LDI  R17,LOW(13)
-; 0000 00B7 
-; 0000 00B8     ////////////////////////  ROW4 ////////////////////////
-; 0000 00B9     KEYPAD_R1 = 0; KEYPAD_R2 = 0;  KEYPAD_R3 = 0;  KEYPAD_R4 = 1; //set Row4 for Keypad
-_0x4A:
+; 0000 00B3 
+; 0000 00B4     ////////////////////////  ROW4 ////////////////////////
+; 0000 00B5     KEYPAD_R1 = 0; KEYPAD_R2 = 0;  KEYPAD_R3 = 0;  KEYPAD_R4 = 1; //set Row4 for Keypad
 _0x48:
 _0x46:
+_0x44:
 	CBI  0x12,0
 	CBI  0x12,1
 	CBI  0x12,2
 	SBI  0x12,3
-; 0000 00BA     delay_ms(5);
+; 0000 00B6     delay_ms(5);
 	CALL SUBOPT_0x8
-; 0000 00BB     if (KEYPAD_C1)
+; 0000 00B7     if (KEYPAD_C1)
 	SBIS 0x10,4
-	RJMP _0x54
-; 0000 00BC     result = KEYPAD_ON;
+	RJMP _0x52
+; 0000 00B8     result = KEYPAD_ON;
 	LDI  R17,LOW(15)
-; 0000 00BD     else if (KEYPAD_C2)
+; 0000 00B9     else if (KEYPAD_C2)
+	RJMP _0x53
+_0x52:
+	SBIS 0x10,5
+	RJMP _0x54
+; 0000 00BA     result = KEYPAD_NUM0;
+	LDI  R17,LOW(0)
+; 0000 00BB     else if (KEYPAD_C3)
 	RJMP _0x55
 _0x54:
-	SBIS 0x10,5
+	SBIS 0x10,6
 	RJMP _0x56
-; 0000 00BE     result = KEYPAD_NUM0;
-	LDI  R17,LOW(0)
-; 0000 00BF     else if (KEYPAD_C3)
+; 0000 00BC     result = KEYPAD_EQU;
+	LDI  R17,LOW(14)
+; 0000 00BD     else if (KEYPAD_C4)
 	RJMP _0x57
 _0x56:
-	SBIS 0x10,6
-	RJMP _0x58
-; 0000 00C0     result = KEYPAD_EQU;
-	LDI  R17,LOW(14)
-; 0000 00C1     else if (KEYPAD_C4)
-	RJMP _0x59
-_0x58:
 	SBIC 0x10,7
-; 0000 00C2     result = KEYPAD_PLS;
+; 0000 00BE     result = KEYPAD_PLS;
 	LDI  R17,LOW(12)
-; 0000 00C3 
-; 0000 00C4     return result;
-_0x59:
+; 0000 00BF 
+; 0000 00C0     return result;
 _0x57:
 _0x55:
+_0x53:
 	MOV  R30,R17
 	LD   R17,Y+
 	RET
-; 0000 00C5 }
+; 0000 00C1 }
 	#ifndef __SLEEP_DEFINED__
 	#define __SLEEP_DEFINED__
 	.EQU __se_bit=0x80
