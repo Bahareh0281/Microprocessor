@@ -1,0 +1,8 @@
+VERSION:3 SOURCE_TIMESTAMP:58A252FB
+NODE:I LEVEL:0 LINE:26 "C:\Program Files (x86)\CodeVision\inc\mega32.h"
+NODE:I LEVEL:0 LINE:29 "C:\Program Files (x86)\CodeVision\inc\alcd.h"
+NODE:I LEVEL:0 LINE:32 "C:\Program Files (x86)\CodeVision\inc\stdio.h"
+NODE:V LEVEL:0 LINE:36 "i -> R5"
+NODE:V LEVEL:0 LINE:37 "x -> R6,R7"
+NODE:F LEVEL:0 LINE:39 "main(void)"
+NODE:F LEVEL:0 LINE:125 "usart_send_string(unsigned char * str)"
