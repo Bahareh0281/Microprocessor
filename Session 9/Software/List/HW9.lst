@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.30  D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 9\Software\List\HW9.asm Thu May 02 10:23:55 2024
+AVRASM ver. 2.1.30  D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 9\Software\List\HW9.asm Thu May 02 10:27:19 2024
 
 D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 9\Software\List\HW9.asm(1072): warning: Register r5 already defined by the .DEF directive
 D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 9\Software\List\HW9.asm(1073): warning: Register r6 already defined by the .DEF directive
@@ -1243,7 +1243,7 @@ D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 9\Software
                  ;Project :
                  ;Version :
                  ;Date    : 5/1/2024
-                 ;Author  : kavousi.b99@gmail.com     Bahareh Kavousi nejad
+                 ;Author  : kavousi.b99@gmail.com     Bahareh Kavousi nejad   99431217
                  ;Company : IUST
                  ;Comments:
                  ;
@@ -1256,7 +1256,7 @@ D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 9\Software
                  ;Data Stack size         : 512
                  ;*****************************************************/
                  ;/*
-                 ;Bahareh Kavousi nejad
+                 ;Bahareh Kavousi nejad      99431217
                  ;*/
                  ;#include <mega32.h>
                  	#ifndef __SLEEP_DEFINED__

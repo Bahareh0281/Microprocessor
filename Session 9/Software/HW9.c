@@ -8,7 +8,7 @@ http://www.hpinfotech.com
 Project : 
 Version : 
 Date    : 5/1/2024
-Author  : kavousi.b99@gmail.com     Bahareh Kavousi nejad
+Author  : kavousi.b99@gmail.com     Bahareh Kavousi nejad   99431217
 Company : IUST
 Comments: 
 
@@ -21,7 +21,7 @@ External RAM size       : 0
 Data Stack size         : 512
 *****************************************************/
 /*
-Bahareh Kavousi nejad
+Bahareh Kavousi nejad      99431217
 */
 #include <mega32.h>
 
