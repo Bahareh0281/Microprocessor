@@ -1,0 +1,11 @@
+VERSION:3 SOURCE_TIMESTAMP:58A98A35
+NODE:I LEVEL:0 LINE:25 "C:\Program Files (x86)\CodeVision\inc\mega32.h"
+NODE:I LEVEL:0 LINE:26 "C:\Program Files (x86)\CodeVision\inc\alcd.h"
+NODE:I LEVEL:0 LINE:27 "C:\Program Files (x86)\CodeVision\inc\delay.h"
+NODE:I LEVEL:0 LINE:28 "C:\Program Files (x86)\CodeVision\inc\stdlib.h"
+NODE:V LEVEL:0 LINE:30 "a -> R5"
+NODE:V LEVEL:0 LINE:31 "i -> R6,R7"
+NODE:F LEVEL:0 LINE:34 "ext_int0_isr(void)"
+NODE:F LEVEL:0 LINE:40 "ext_int1_isr(void)"
+NODE:F LEVEL:0 LINE:46 "ext_int2_isr(void)"
+NODE:F LEVEL:0 LINE:58 "main(void)"
