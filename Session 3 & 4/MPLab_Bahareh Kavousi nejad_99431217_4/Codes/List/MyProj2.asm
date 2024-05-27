@@ -1,31 +1,34 @@
 
-;CodeVisionAVR C Compiler V2.05.3 Standard
-;(C) Copyright 1998-2011 Pavel Haiduc, HP InfoTech s.r.l.
+;CodeVisionAVR C Compiler V3.14 Advanced
+;(C) Copyright 1998-2014 Pavel Haiduc, HP InfoTech s.r.l.
 ;http://www.hpinfotech.com
 
-;Chip type                : ATmega32
-;Program type             : Application
-;Clock frequency          : 8.000000 MHz
-;Memory model             : Small
-;Optimize for             : Size
-;(s)printf features       : int, width
-;(s)scanf features        : int, width
-;External RAM size        : 0
-;Data Stack size          : 512 byte(s)
-;Heap size                : 0 byte(s)
-;Promote 'char' to 'int'  : Yes
-;'char' is unsigned       : Yes
-;8 bit enums              : Yes
-;Global 'const' stored in FLASH     : No
+;Build configuration    : Release
+;Chip type              : ATmega32
+;Program type           : Application
+;Clock frequency        : 8.000000 MHz
+;Memory model           : Small
+;Optimize for           : Size
+;(s)printf features     : int, width
+;(s)scanf features      : int, width
+;External RAM size      : 0
+;Data Stack size        : 512 byte(s)
+;Heap size              : 0 byte(s)
+;Promote 'char' to 'int': Yes
+;'char' is unsigned     : Yes
+;8 bit enums            : Yes
+;Global 'const' stored in FLASH: No
 ;Enhanced function parameter passing: Yes
-;Enhanced core instructions         : On
-;Smart register allocation          : On
-;Automatic register allocation      : On
+;Enhanced core instructions: On
+;Automatic register allocation for global variables: On
+;Smart register allocation: On
+
+	#define _MODEL_SMALL_
 
 	#pragma AVRPART ADMIN PART_NAME ATmega32
 	#pragma AVRPART MEMORY PROG_FLASH 32768
 	#pragma AVRPART MEMORY EEPROM 1024
-	#pragma AVRPART MEMORY INT_SRAM SIZE 2143
+	#pragma AVRPART MEMORY INT_SRAM SIZE 2048
 	#pragma AVRPART MEMORY INT_SRAM START_ADDR 0x60
 
 	#define CALL_SUPPORTED 1
@@ -605,27 +608,40 @@ __DELAY_USW_LOOP:
 	.ENDM
 
 	.MACRO __CALL2EN
+	PUSH R26
+	PUSH R27
 	LDI  R26,LOW(@0+(@1))
 	LDI  R27,HIGH(@0+(@1))
 	CALL __EEPROMRDW
+	POP  R27
+	POP  R26
+	ICALL
+	.ENDM
+
+	.MACRO __CALL2EX
+	SUBI R26,LOW(-@0)
+	SBCI R27,HIGH(-@0)
+	CALL __EEPROMRDD
 	ICALL
 	.ENDM
 
 	.MACRO __GETW1STACK
-	IN   R26,SPL
-	IN   R27,SPH
-	ADIW R26,@0+1
-	LD   R30,X+
-	LD   R31,X
+	IN   R30,SPL
+	IN   R31,SPH
+	ADIW R30,@0+1
+	LD   R0,Z+
+	LD   R31,Z
+	MOV  R30,R0
 	.ENDM
 
 	.MACRO __GETD1STACK
-	IN   R26,SPL
-	IN   R27,SPH
-	ADIW R26,@0+1
-	LD   R30,X+
-	LD   R31,X+
-	LD   R22,X
+	IN   R30,SPL
+	IN   R31,SPH
+	ADIW R30,@0+1
+	LD   R0,Z+
+	LD   R1,Z+
+	LD   R22,Z
+	MOVW R30,R0
 	.ENDM
 
 	.MACRO __NBST
@@ -1070,10 +1086,15 @@ __DELAY_USW_LOOP:
 
 ;NAME DEFINITIONS FOR GLOBAL VARIABLES ALLOCATED TO REGISTERS
 	.DEF _hour_1=R4
+	.DEF _hour_1_msb=R5
 	.DEF _hour_2=R6
+	.DEF _hour_2_msb=R7
 	.DEF _minute_1=R8
+	.DEF _minute_1_msb=R9
 	.DEF _minute_2=R10
+	.DEF _minute_2_msb=R11
 	.DEF _second_1=R12
+	.DEF _second_1_msb=R13
 
 	.CSEG
 	.ORG 0x00
@@ -1104,16 +1125,23 @@ __START_OF_CODE:
 	JMP  0x00
 	JMP  0x00
 
+;GLOBAL REGISTER VARIABLES INITIALIZATION
+__REG_VARS:
+	.DB  0x3,0x0,0x2,0x0
+	.DB  0x8,0x0,0x5,0x0
+	.DB  0x0,0x0
+
 _0x3:
 	.DB  0x80
 _0x4:
 	.DB  0x3F,0x6,0x5B,0x4F,0x66,0x6D,0x7D,0x7
 	.DB  0x7F,0x6F
-_0x22:
-	.DB  0x3,0x0,0x2,0x0,0x8,0x0,0x5,0x0
-	.DB  0x0,0x0
 
 __GLOBAL_INI_TBL:
+	.DW  0x0A
+	.DW  0x04
+	.DW  __REG_VARS*2
+
 	.DW  0x01
 	.DW  _dot
 	.DW  _0x3*2
@@ -1122,12 +1150,10 @@ __GLOBAL_INI_TBL:
 	.DW  _number
 	.DW  _0x4*2
 
-	.DW  0x0A
-	.DW  0x04
-	.DW  _0x22*2
-
 _0xFFFFFFFF:
 	.DW  0
+
+#define __GLOBAL_INI_TBL_PRESENT 1
 
 __RESET:
 	CLI
@@ -1270,6 +1296,7 @@ __GLOBAL_INI_END:
 
 	.CSEG
 _timer0_comp_isr:
+; .FSTART _timer0_comp_isr
 	ST   -Y,R26
 	ST   -Y,R27
 	ST   -Y,R30
@@ -1301,12 +1328,14 @@ _0x5:
 	LD   R27,Y+
 	LD   R26,Y+
 	RETI
+; .FEND
 ;
 ;
 ;// Timer1 output compare A interrupt service routine
 ;interrupt [TIM1_COMPA] void timer1_compa_isr(void)
 ; 0000 0039 {
 _timer1_compa_isr:
+; .FSTART _timer1_compa_isr
 	ST   -Y,R0
 	ST   -Y,R26
 	ST   -Y,R27
@@ -1322,7 +1351,6 @@ _timer1_compa_isr:
 	ADIW R30,1
 	MOVW R12,R30
 ; 0000 003C     if (second_1%2 == 0)
-	MOVW R30,R12
 	ANDI R30,LOW(0x1)
 	BRNE _0x6
 ; 0000 003D         dot = 0x80;
@@ -1335,8 +1363,8 @@ _0x6:
 	LDI  R31,HIGH(10)
 	CP   R30,R12
 	CPC  R31,R13
-	BREQ PC+3
-	JMP _0x7
+	BREQ PC+2
+	RJMP _0x7
 ; 0000 0040         second_2+=1;
 	LDS  R30,_second_2
 	LDS  R31,_second_2+1
@@ -1446,11 +1474,13 @@ _0x7:
 	LD   R26,Y+
 	LD   R0,Y+
 	RETI
+; .FEND
 ;
 ;
 ;void main(void){
 ; 0000 005A void main(void){
 _main:
+; .FSTART _main
 ; 0000 005B     // Declare your local variables here
 ; 0000 005C 
 ; 0000 005D     // Input/Output Ports initialization
@@ -1697,6 +1727,7 @@ _0x1E:
 ; 0000 00D2 }
 _0x1F:
 	RJMP _0x1F
+; .FEND
 
 	.DSEG
 _second_2:

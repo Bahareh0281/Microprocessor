@@ -1,40 +1,48 @@
 
-AVRASM ver. 2.1.30  C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_4_NEW\List\MyProj2.asm Tue Mar 12 23:01:25 2024
+AVRASM ver. 2.1.30  D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3 & 4\MPLab_Bahareh Kavousi nejad_99431217_4\Codes\List\MyProj2.asm Sun May 26 10:05:48 2024
 
-C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_4_NEW\List\MyProj2.asm(1072): warning: Register r4 already defined by the .DEF directive
-C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_4_NEW\List\MyProj2.asm(1073): warning: Register r6 already defined by the .DEF directive
-C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_4_NEW\List\MyProj2.asm(1074): warning: Register r8 already defined by the .DEF directive
-C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_4_NEW\List\MyProj2.asm(1075): warning: Register r10 already defined by the .DEF directive
-C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_4_NEW\List\MyProj2.asm(1076): warning: Register r12 already defined by the .DEF directive
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3 & 4\MPLab_Bahareh Kavousi nejad_99431217_4\Codes\List\MyProj2.asm(1088): warning: Register r4 already defined by the .DEF directive
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3 & 4\MPLab_Bahareh Kavousi nejad_99431217_4\Codes\List\MyProj2.asm(1089): warning: Register r5 already defined by the .DEF directive
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3 & 4\MPLab_Bahareh Kavousi nejad_99431217_4\Codes\List\MyProj2.asm(1090): warning: Register r6 already defined by the .DEF directive
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3 & 4\MPLab_Bahareh Kavousi nejad_99431217_4\Codes\List\MyProj2.asm(1091): warning: Register r7 already defined by the .DEF directive
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3 & 4\MPLab_Bahareh Kavousi nejad_99431217_4\Codes\List\MyProj2.asm(1092): warning: Register r8 already defined by the .DEF directive
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3 & 4\MPLab_Bahareh Kavousi nejad_99431217_4\Codes\List\MyProj2.asm(1093): warning: Register r9 already defined by the .DEF directive
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3 & 4\MPLab_Bahareh Kavousi nejad_99431217_4\Codes\List\MyProj2.asm(1094): warning: Register r10 already defined by the .DEF directive
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3 & 4\MPLab_Bahareh Kavousi nejad_99431217_4\Codes\List\MyProj2.asm(1095): warning: Register r11 already defined by the .DEF directive
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3 & 4\MPLab_Bahareh Kavousi nejad_99431217_4\Codes\List\MyProj2.asm(1096): warning: Register r12 already defined by the .DEF directive
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3 & 4\MPLab_Bahareh Kavousi nejad_99431217_4\Codes\List\MyProj2.asm(1097): warning: Register r13 already defined by the .DEF directive
                  
                  
-                 ;CodeVisionAVR C Compiler V2.05.3 Standard
-                 ;(C) Copyright 1998-2011 Pavel Haiduc, HP InfoTech s.r.l.
+                 ;CodeVisionAVR C Compiler V3.14 Advanced
+                 ;(C) Copyright 1998-2014 Pavel Haiduc, HP InfoTech s.r.l.
                  ;http://www.hpinfotech.com
                  
-                 ;Chip type                : ATmega32
-                 ;Program type             : Application
-                 ;Clock frequency          : 8.000000 MHz
-                 ;Memory model             : Small
-                 ;Optimize for             : Size
-                 ;(s)printf features       : int, width
-                 ;(s)scanf features        : int, width
-                 ;External RAM size        : 0
-                 ;Data Stack size          : 512 byte(s)
-                 ;Heap size                : 0 byte(s)
-                 ;Promote 'char' to 'int'  : Yes
-                 ;'char' is unsigned       : Yes
-                 ;8 bit enums              : Yes
-                 ;Global 'const' stored in FLASH     : No
+                 ;Build configuration    : Release
+                 ;Chip type              : ATmega32
+                 ;Program type           : Application
+                 ;Clock frequency        : 8.000000 MHz
+                 ;Memory model           : Small
+                 ;Optimize for           : Size
+                 ;(s)printf features     : int, width
+                 ;(s)scanf features      : int, width
+                 ;External RAM size      : 0
+                 ;Data Stack size        : 512 byte(s)
+                 ;Heap size              : 0 byte(s)
+                 ;Promote 'char' to 'int': Yes
+                 ;'char' is unsigned     : Yes
+                 ;8 bit enums            : Yes
+                 ;Global 'const' stored in FLASH: No
                  ;Enhanced function parameter passing: Yes
-                 ;Enhanced core instructions         : On
-                 ;Smart register allocation          : On
-                 ;Automatic register allocation      : On
+                 ;Enhanced core instructions: On
+                 ;Automatic register allocation for global variables: On
+                 ;Smart register allocation: On
+                 
+                 	#define _MODEL_SMALL_
                  
                  	#pragma AVRPART ADMIN PART_NAME ATmega32
                  	#pragma AVRPART MEMORY PROG_FLASH 32768
                  	#pragma AVRPART MEMORY EEPROM 1024
-                 	#pragma AVRPART MEMORY INT_SRAM SIZE 2143
+                 	#pragma AVRPART MEMORY INT_SRAM SIZE 2048
                  	#pragma AVRPART MEMORY INT_SRAM START_ADDR 0x60
                  
                  	#define CALL_SUPPORTED 1
@@ -614,27 +622,40 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
                  	.ENDM
                  
                  	.MACRO __CALL2EN
+                 	PUSH R26
+                 	PUSH R27
                  	LDI  R26,LOW(@0+(@1))
                  	LDI  R27,HIGH(@0+(@1))
                  	CALL __EEPROMRDW
+                 	POP  R27
+                 	POP  R26
+                 	ICALL
+                 	.ENDM
+                 
+                 	.MACRO __CALL2EX
+                 	SUBI R26,LOW(-@0)
+                 	SBCI R27,HIGH(-@0)
+                 	CALL __EEPROMRDD
                  	ICALL
                  	.ENDM
                  
                  	.MACRO __GETW1STACK
-                 	IN   R26,SPL
-                 	IN   R27,SPH
-                 	ADIW R26,@0+1
-                 	LD   R30,X+
-                 	LD   R31,X
+                 	IN   R30,SPL
+                 	IN   R31,SPH
+                 	ADIW R30,@0+1
+                 	LD   R0,Z+
+                 	LD   R31,Z
+                 	MOV  R30,R0
                  	.ENDM
                  
                  	.MACRO __GETD1STACK
-                 	IN   R26,SPL
-                 	IN   R27,SPH
-                 	ADIW R26,@0+1
-                 	LD   R30,X+
-                 	LD   R31,X+
-                 	LD   R22,X
+                 	IN   R30,SPL
+                 	IN   R31,SPH
+                 	ADIW R30,@0+1
+                 	LD   R0,Z+
+                 	LD   R1,Z+
+                 	LD   R22,Z
+                 	MOVW R30,R0
                  	.ENDM
                  
                  	.MACRO __NBST
@@ -1079,10 +1100,15 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
                  
                  ;NAME DEFINITIONS FOR GLOBAL VARIABLES ALLOCATED TO REGISTERS
                  	.DEF _hour_1=R4
+                 	.DEF _hour_1_msb=R5
                  	.DEF _hour_2=R6
+                 	.DEF _hour_2_msb=R7
                  	.DEF _minute_1=R8
+                 	.DEF _minute_1_msb=R9
                  	.DEF _minute_2=R10
+                 	.DEF _minute_2_msb=R11
                  	.DEF _second_1=R12
+                 	.DEF _second_1_msb=R13
                  
                  	.CSEG
                  	.ORG 0x00
@@ -1113,37 +1139,41 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
 000026 940c 0000 	JMP  0x00
 000028 940c 0000 	JMP  0x00
                  
+                 ;GLOBAL REGISTER VARIABLES INITIALIZATION
+                 __REG_VARS:
+00002a 0003
+00002b 0002      	.DB  0x3,0x0,0x2,0x0
+00002c 0008
+00002d 0005      	.DB  0x8,0x0,0x5,0x0
+00002e 0000      	.DB  0x0,0x0
+                 
                  _0x3:
-C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_4_NEW\List\MyProj2.asm(1108): warning: .cseg .db misalignment - padding zero byte
-00002a 0080      	.DB  0x80
+D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 3 & 4\MPLab_Bahareh Kavousi nejad_99431217_4\Codes\List\MyProj2.asm(1135): warning: .cseg .db misalignment - padding zero byte
+00002f 0080      	.DB  0x80
                  _0x4:
-00002b 063f
-00002c 4f5b
-00002d 6d66
-00002e 077d      	.DB  0x3F,0x6,0x5B,0x4F,0x66,0x6D,0x7D,0x7
-00002f 6f7f      	.DB  0x7F,0x6F
-                 _0x22:
-000030 0003
-000031 0002
-000032 0008
-000033 0005      	.DB  0x3,0x0,0x2,0x0,0x8,0x0,0x5,0x0
-000034 0000      	.DB  0x0,0x0
+000030 063f
+000031 4f5b
+000032 6d66
+000033 077d      	.DB  0x3F,0x6,0x5B,0x4F,0x66,0x6D,0x7D,0x7
+000034 6f7f      	.DB  0x7F,0x6F
                  
                  __GLOBAL_INI_TBL:
-000035 0001      	.DW  0x01
-000036 0262      	.DW  _dot
-000037 0054      	.DW  _0x3*2
+000035 000a      	.DW  0x0A
+000036 0004      	.DW  0x04
+000037 0054      	.DW  __REG_VARS*2
                  
-000038 000a      	.DW  0x0A
-000039 0265      	.DW  _number
-00003a 0056      	.DW  _0x4*2
+000038 0001      	.DW  0x01
+000039 0262      	.DW  _dot
+00003a 005e      	.DW  _0x3*2
                  
 00003b 000a      	.DW  0x0A
-00003c 0004      	.DW  0x04
-00003d 0060      	.DW  _0x22*2
+00003c 0265      	.DW  _number
+00003d 0060      	.DW  _0x4*2
                  
                  _0xFFFFFFFF:
 00003e 0000      	.DW  0
+                 
+                 #define __GLOBAL_INI_TBL_PRESENT 1
                  
                  __RESET:
 00003f 94f8      	CLI
@@ -1213,7 +1243,7 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
 00006b e6c0      	LDI  R28,LOW(__SRAM_START+__DSTACK_SIZE)
 00006c e0d2      	LDI  R29,HIGH(__SRAM_START+__DSTACK_SIZE)
                  
-00006d 940c 00f8 	JMP  _main
+00006d 940c 00f6 	JMP  _main
                  
                  	.ESEG
                  	.ORG 0
@@ -1286,6 +1316,7 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
                  
                  	.CSEG
                  _timer0_comp_isr:
+                 ; .FSTART _timer0_comp_isr
 00006f 93aa      	ST   -Y,R26
 000070 93ba      	ST   -Y,R27
 000071 93ea      	ST   -Y,R30
@@ -1301,7 +1332,7 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
 00007a 93fe      	ST   -X,R31
 00007b 93ee      	ST   -X,R30
                  ; 0000 0032     if (counter == 6)
-00007c d0f4      	RCALL SUBOPT_0x0
+00007c d0f2      	RCALL SUBOPT_0x0
 00007d 9716      	SBIW R26,6
 00007e f429      	BRNE _0x5
                  ; 0000 0033         counter=0;
@@ -1317,12 +1348,14 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
 000088 91b9      	LD   R27,Y+
 000089 91a9      	LD   R26,Y+
 00008a 9518      	RETI
+                 ; .FEND
                  ;
                  ;
                  ;// Timer1 output compare A interrupt service routine
                  ;interrupt [TIM1_COMPA] void timer1_compa_isr(void)
                  ; 0000 0039 {
                  _timer1_compa_isr:
+                 ; .FSTART _timer1_compa_isr
 00008b 920a      	ST   -Y,R0
 00008c 93aa      	ST   -Y,R26
 00008d 93ba      	ST   -Y,R27
@@ -1338,111 +1371,110 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
 000096 9631      	ADIW R30,1
 000097 016f      	MOVW R12,R30
                  ; 0000 003C     if (second_1%2 == 0)
-000098 01f6      	MOVW R30,R12
-000099 70e1      	ANDI R30,LOW(0x1)
-00009a f419      	BRNE _0x6
+000098 70e1      	ANDI R30,LOW(0x1)
+000099 f419      	BRNE _0x6
                  ; 0000 003D         dot = 0x80;
-00009b e8e0      	LDI  R30,LOW(128)
-00009c 93e0 0262 	STS  _dot,R30
+00009a e8e0      	LDI  R30,LOW(128)
+00009b 93e0 0262 	STS  _dot,R30
                  ; 0000 003E 
                  ; 0000 003F     if(second_1==10){
                  _0x6:
-00009e e0ea      	LDI  R30,LOW(10)
-00009f e0f0      	LDI  R31,HIGH(10)
-0000a0 15ec      	CP   R30,R12
-0000a1 05fd      	CPC  R31,R13
-0000a2 f011      	BREQ PC+3
-0000a3 940c 00f0 	JMP _0x7
+00009d e0ea      	LDI  R30,LOW(10)
+00009e e0f0      	LDI  R31,HIGH(10)
+00009f 15ec      	CP   R30,R12
+0000a0 05fd      	CPC  R31,R13
+0000a1 f009      	BREQ PC+2
+0000a2 c04b      	RJMP _0x7
                  ; 0000 0040         second_2+=1;
-0000a5 91e0 0260 	LDS  R30,_second_2
-0000a7 91f0 0261 	LDS  R31,_second_2+1
-0000a9 9631      	ADIW R30,1
-0000aa 93e0 0260 	STS  _second_2,R30
-0000ac 93f0 0261 	STS  _second_2+1,R31
+0000a3 91e0 0260 	LDS  R30,_second_2
+0000a5 91f0 0261 	LDS  R31,_second_2+1
+0000a7 9631      	ADIW R30,1
+0000a8 93e0 0260 	STS  _second_2,R30
+0000aa 93f0 0261 	STS  _second_2+1,R31
                  ; 0000 0041         second_1=0;
-0000ae 24cc      	CLR  R12
-0000af 24dd      	CLR  R13
+0000ac 24cc      	CLR  R12
+0000ad 24dd      	CLR  R13
                  ; 0000 0042         if(second_2==6){
-0000b0 91a0 0260 	LDS  R26,_second_2
-0000b2 91b0 0261 	LDS  R27,_second_2+1
-0000b4 9716      	SBIW R26,6
-0000b5 f5d1      	BRNE _0x8
+0000ae 91a0 0260 	LDS  R26,_second_2
+0000b0 91b0 0261 	LDS  R27,_second_2+1
+0000b2 9716      	SBIW R26,6
+0000b3 f5d1      	BRNE _0x8
                  ; 0000 0043             minute_1+=1;
-0000b6 01f4      	MOVW R30,R8
-0000b7 9631      	ADIW R30,1
-0000b8 014f      	MOVW R8,R30
+0000b4 01f4      	MOVW R30,R8
+0000b5 9631      	ADIW R30,1
+0000b6 014f      	MOVW R8,R30
                  ; 0000 0044             second_2=0;
-0000b9 e0e0      	LDI  R30,LOW(0)
-0000ba 93e0 0260 	STS  _second_2,R30
-0000bc 93e0 0261 	STS  _second_2+1,R30
+0000b7 e0e0      	LDI  R30,LOW(0)
+0000b8 93e0 0260 	STS  _second_2,R30
+0000ba 93e0 0261 	STS  _second_2+1,R30
                  ; 0000 0045             if (minute_1==10){
-0000be e0ea      	LDI  R30,LOW(10)
-0000bf e0f0      	LDI  R31,HIGH(10)
-0000c0 15e8      	CP   R30,R8
-0000c1 05f9      	CPC  R31,R9
-0000c2 f569      	BRNE _0x9
+0000bc e0ea      	LDI  R30,LOW(10)
+0000bd e0f0      	LDI  R31,HIGH(10)
+0000be 15e8      	CP   R30,R8
+0000bf 05f9      	CPC  R31,R9
+0000c0 f569      	BRNE _0x9
                  ; 0000 0046                 minute_2+=1;
-0000c3 01f5      	MOVW R30,R10
-0000c4 9631      	ADIW R30,1
-0000c5 015f      	MOVW R10,R30
+0000c1 01f5      	MOVW R30,R10
+0000c2 9631      	ADIW R30,1
+0000c3 015f      	MOVW R10,R30
                  ; 0000 0047                 minute_1=0;
-0000c6 2488      	CLR  R8
-0000c7 2499      	CLR  R9
+0000c4 2488      	CLR  R8
+0000c5 2499      	CLR  R9
                  ; 0000 0048                 if (minute_2==6){
-0000c8 e0e6      	LDI  R30,LOW(6)
-0000c9 e0f0      	LDI  R31,HIGH(6)
-0000ca 15ea      	CP   R30,R10
-0000cb 05fb      	CPC  R31,R11
-0000cc f519      	BRNE _0xA
+0000c6 e0e6      	LDI  R30,LOW(6)
+0000c7 e0f0      	LDI  R31,HIGH(6)
+0000c8 15ea      	CP   R30,R10
+0000c9 05fb      	CPC  R31,R11
+0000ca f519      	BRNE _0xA
                  ; 0000 0049                     hour_1+=1;
-0000cd 01f2      	MOVW R30,R4
-0000ce 9631      	ADIW R30,1
-0000cf 012f      	MOVW R4,R30
+0000cb 01f2      	MOVW R30,R4
+0000cc 9631      	ADIW R30,1
+0000cd 012f      	MOVW R4,R30
                  ; 0000 004A                     minute_2=0;
-0000d0 24aa      	CLR  R10
-0000d1 24bb      	CLR  R11
+0000ce 24aa      	CLR  R10
+0000cf 24bb      	CLR  R11
                  ; 0000 004B                     if (hour_1==10 && hour_2 == 0 ){
-0000d2 e0ea      	LDI  R30,LOW(10)
-0000d3 e0f0      	LDI  R31,HIGH(10)
-0000d4 15e4      	CP   R30,R4
-0000d5 05f5      	CPC  R31,R5
-0000d6 f421      	BRNE _0xC
-0000d7 2400      	CLR  R0
-0000d8 1406      	CP   R0,R6
-0000d9 0407      	CPC  R0,R7
-0000da f009      	BREQ _0xD
+0000d0 e0ea      	LDI  R30,LOW(10)
+0000d1 e0f0      	LDI  R31,HIGH(10)
+0000d2 15e4      	CP   R30,R4
+0000d3 05f5      	CPC  R31,R5
+0000d4 f421      	BRNE _0xC
+0000d5 2400      	CLR  R0
+0000d6 1406      	CP   R0,R6
+0000d7 0407      	CPC  R0,R7
+0000d8 f009      	BREQ _0xD
                  _0xC:
-0000db c005      	RJMP _0xB
+0000d9 c005      	RJMP _0xB
                  _0xD:
                  ; 0000 004C                         hour_2+=1;
-0000dc 01f3      	MOVW R30,R6
-0000dd 9631      	ADIW R30,1
-0000de 013f      	MOVW R6,R30
+0000da 01f3      	MOVW R30,R6
+0000db 9631      	ADIW R30,1
+0000dc 013f      	MOVW R6,R30
                  ; 0000 004D                         hour_1=0;
-0000df 2444      	CLR  R4
-0000e0 2455      	CLR  R5
+0000dd 2444      	CLR  R4
+0000de 2455      	CLR  R5
                  ; 0000 004E                     }
                  ; 0000 004F                     if (hour_1==4 && hour_2 == 2 ){
                  _0xB:
-0000e1 e0e4      	LDI  R30,LOW(4)
-0000e2 e0f0      	LDI  R31,HIGH(4)
-0000e3 15e4      	CP   R30,R4
-0000e4 05f5      	CPC  R31,R5
-0000e5 f429      	BRNE _0xF
-0000e6 e0e2      	LDI  R30,LOW(2)
-0000e7 e0f0      	LDI  R31,HIGH(2)
-0000e8 15e6      	CP   R30,R6
-0000e9 05f7      	CPC  R31,R7
-0000ea f009      	BREQ _0x10
+0000df e0e4      	LDI  R30,LOW(4)
+0000e0 e0f0      	LDI  R31,HIGH(4)
+0000e1 15e4      	CP   R30,R4
+0000e2 05f5      	CPC  R31,R5
+0000e3 f429      	BRNE _0xF
+0000e4 e0e2      	LDI  R30,LOW(2)
+0000e5 e0f0      	LDI  R31,HIGH(2)
+0000e6 15e6      	CP   R30,R6
+0000e7 05f7      	CPC  R31,R7
+0000e8 f009      	BREQ _0x10
                  _0xF:
-0000eb c004      	RJMP _0xE
+0000e9 c004      	RJMP _0xE
                  _0x10:
                  ; 0000 0050                         hour_1=0;
-0000ec 2444      	CLR  R4
-0000ed 2455      	CLR  R5
+0000ea 2444      	CLR  R4
+0000eb 2455      	CLR  R5
                  ; 0000 0051                         hour_2=0;
-0000ee 2466      	CLR  R6
-0000ef 2477      	CLR  R7
+0000ec 2466      	CLR  R6
+0000ed 2477      	CLR  R7
                  ; 0000 0052                     }
                  ; 0000 0053                 }
                  _0xE:
@@ -1454,19 +1486,21 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
                  _0x8:
                  ; 0000 0057 }
                  _0x7:
-0000f0 91e9      	LD   R30,Y+
-0000f1 bfef      	OUT  SREG,R30
-0000f2 91f9      	LD   R31,Y+
-0000f3 91e9      	LD   R30,Y+
-0000f4 91b9      	LD   R27,Y+
-0000f5 91a9      	LD   R26,Y+
-0000f6 9009      	LD   R0,Y+
-0000f7 9518      	RETI
+0000ee 91e9      	LD   R30,Y+
+0000ef bfef      	OUT  SREG,R30
+0000f0 91f9      	LD   R31,Y+
+0000f1 91e9      	LD   R30,Y+
+0000f2 91b9      	LD   R27,Y+
+0000f3 91a9      	LD   R26,Y+
+0000f4 9009      	LD   R0,Y+
+0000f5 9518      	RETI
+                 ; .FEND
                  ;
                  ;
                  ;void main(void){
                  ; 0000 005A void main(void){
                  _main:
+                 ; .FSTART _main
                  ; 0000 005B     // Declare your local variables here
                  ; 0000 005C 
                  ; 0000 005D     // Input/Output Ports initialization
@@ -1474,37 +1508,37 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
                  ; 0000 005F     // Func7=In Func6=In Func5=In Func4=In Func3=In Func2=In Func1=In Func0=In
                  ; 0000 0060     // State7=T State6=T State5=T State4=T State3=T State2=T State1=T State0=T
                  ; 0000 0061     PORTA=0x00;
-0000f8 e0e0      	LDI  R30,LOW(0)
-0000f9 bbeb      	OUT  0x1B,R30
+0000f6 e0e0      	LDI  R30,LOW(0)
+0000f7 bbeb      	OUT  0x1B,R30
                  ; 0000 0062     DDRA=0x00;
-0000fa bbea      	OUT  0x1A,R30
+0000f8 bbea      	OUT  0x1A,R30
                  ; 0000 0063 
                  ; 0000 0064     // Port B initialization
                  ; 0000 0065     // Func7=In Func6=In Func5=In Func4=In Func3=In Func2=In Func1=In Func0=In
                  ; 0000 0066     // State7=T State6=T State5=T State4=T State3=T State2=T State1=T State0=T
                  ; 0000 0067     PORTB=0x00;
-0000fb bbe8      	OUT  0x18,R30
+0000f9 bbe8      	OUT  0x18,R30
                  ; 0000 0068     DDRB=0x00;
-0000fc bbe7      	OUT  0x17,R30
+0000fa bbe7      	OUT  0x17,R30
                  ; 0000 0069 
                  ; 0000 006A     // Port C initialization
                  ; 0000 006B     // Func7=Out Func6=Out Func5=Out Func4=Out Func3=Out Func2=Out Func1=Out Func0=Out
                  ; 0000 006C     // State7=0 State6=0 State5=0 State4=0 State3=0 State2=0 State1=0 State0=0
                  ; 0000 006D     PORTC=0x00;
-0000fd bbe5      	OUT  0x15,R30
+0000fb bbe5      	OUT  0x15,R30
                  ; 0000 006E     DDRC=0xFF;
-0000fe efef      	LDI  R30,LOW(255)
-0000ff bbe4      	OUT  0x14,R30
+0000fc efef      	LDI  R30,LOW(255)
+0000fd bbe4      	OUT  0x14,R30
                  ; 0000 006F 
                  ; 0000 0070     // Port D initialization
                  ; 0000 0071     // Func7=Out Func6=Out Func5=Out Func4=Out Func3=Out Func2=Out Func1=Out Func0=Out
                  ; 0000 0072     // State7=0 State6=0 State5=0 State4=0 State3=0 State2=0 State1=0 State0=0
                  ; 0000 0073     PORTD=0x00;
-000100 e0e0      	LDI  R30,LOW(0)
-000101 bbe2      	OUT  0x12,R30
+0000fe e0e0      	LDI  R30,LOW(0)
+0000ff bbe2      	OUT  0x12,R30
                  ; 0000 0074     DDRD=0xFF;
-000102 efef      	LDI  R30,LOW(255)
-000103 bbe1      	OUT  0x11,R30
+000100 efef      	LDI  R30,LOW(255)
+000101 bbe1      	OUT  0x11,R30
                  ; 0000 0075 
                  ; 0000 0076     // Timer/Counter 0 initialization
                  ; 0000 0077     // Clock source: System Clock
@@ -1512,14 +1546,14 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
                  ; 0000 0079     // Mode: CTC top=OCR0
                  ; 0000 007A     // OC0 output: Disconnected
                  ; 0000 007B     TCCR0=0x0C;
-000104 e0ec      	LDI  R30,LOW(12)
-000105 bfe3      	OUT  0x33,R30
+000102 e0ec      	LDI  R30,LOW(12)
+000103 bfe3      	OUT  0x33,R30
                  ; 0000 007C     TCNT0=0x00;
-000106 e0e0      	LDI  R30,LOW(0)
-000107 bfe2      	OUT  0x32,R30
+000104 e0e0      	LDI  R30,LOW(0)
+000105 bfe2      	OUT  0x32,R30
                  ; 0000 007D     OCR0=0x63;
-000108 e6e3      	LDI  R30,LOW(99)
-000109 bfec      	OUT  0x3C,R30
+000106 e6e3      	LDI  R30,LOW(99)
+000107 bfec      	OUT  0x3C,R30
                  ; 0000 007E 
                  ; 0000 007F     // Timer/Counter 1 initialization
                  ; 0000 0080     // Clock source: System Clock
@@ -1534,31 +1568,31 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
                  ; 0000 0089     // Compare A Match Interrupt: On
                  ; 0000 008A     // Compare B Match Interrupt: Off
                  ; 0000 008B     TCCR1A=0x00;
-00010a e0e0      	LDI  R30,LOW(0)
-00010b bdef      	OUT  0x2F,R30
+000108 e0e0      	LDI  R30,LOW(0)
+000109 bdef      	OUT  0x2F,R30
                  ; 0000 008C     TCCR1B=0x0C;
-00010c e0ec      	LDI  R30,LOW(12)
-00010d bdee      	OUT  0x2E,R30
+00010a e0ec      	LDI  R30,LOW(12)
+00010b bdee      	OUT  0x2E,R30
                  ; 0000 008D     TCNT1H=0x00;
-00010e e0e0      	LDI  R30,LOW(0)
-00010f bded      	OUT  0x2D,R30
+00010c e0e0      	LDI  R30,LOW(0)
+00010d bded      	OUT  0x2D,R30
                  ; 0000 008E     TCNT1L=0x00;
-000110 bdec      	OUT  0x2C,R30
+00010e bdec      	OUT  0x2C,R30
                  ; 0000 008F     ICR1H=0x00;
-000111 bde7      	OUT  0x27,R30
+00010f bde7      	OUT  0x27,R30
                  ; 0000 0090     ICR1L=0x00;
-000112 bde6      	OUT  0x26,R30
+000110 bde6      	OUT  0x26,R30
                  ; 0000 0091     OCR1AH=0x7A;
-000113 e7ea      	LDI  R30,LOW(122)
-000114 bdeb      	OUT  0x2B,R30
+000111 e7ea      	LDI  R30,LOW(122)
+000112 bdeb      	OUT  0x2B,R30
                  ; 0000 0092     OCR1AL=0x12;
-000115 e1e2      	LDI  R30,LOW(18)
-000116 bdea      	OUT  0x2A,R30
+000113 e1e2      	LDI  R30,LOW(18)
+000114 bdea      	OUT  0x2A,R30
                  ; 0000 0093     OCR1BH=0x00;
-000117 e0e0      	LDI  R30,LOW(0)
-000118 bde9      	OUT  0x29,R30
+000115 e0e0      	LDI  R30,LOW(0)
+000116 bde9      	OUT  0x29,R30
                  ; 0000 0094     OCR1BL=0x00;
-000119 bde8      	OUT  0x28,R30
+000117 bde8      	OUT  0x28,R30
                  ; 0000 0095 
                  ; 0000 0096     // Timer/Counter 2 initialization
                  ; 0000 0097     // Clock source: System Clock
@@ -1566,153 +1600,154 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
                  ; 0000 0099     // Mode: Normal top=FFh
                  ; 0000 009A     // OC2 output: Disconnected
                  ; 0000 009B     ASSR=0x00;
-00011a bde2      	OUT  0x22,R30
+000118 bde2      	OUT  0x22,R30
                  ; 0000 009C     TCCR2=0x00;
-00011b bde5      	OUT  0x25,R30
+000119 bde5      	OUT  0x25,R30
                  ; 0000 009D     TCNT2=0x00;
-00011c bde4      	OUT  0x24,R30
+00011a bde4      	OUT  0x24,R30
                  ; 0000 009E     OCR2=0x00;
-00011d bde3      	OUT  0x23,R30
+00011b bde3      	OUT  0x23,R30
                  ; 0000 009F 
                  ; 0000 00A0     // External Interrupt(s) initialization
                  ; 0000 00A1     // INT0: Off
                  ; 0000 00A2     // INT1: Off
                  ; 0000 00A3     // INT2: Off
                  ; 0000 00A4     MCUCR=0x00;
-00011e bfe5      	OUT  0x35,R30
+00011c bfe5      	OUT  0x35,R30
                  ; 0000 00A5     MCUCSR=0x00;
-00011f bfe4      	OUT  0x34,R30
+00011d bfe4      	OUT  0x34,R30
                  ; 0000 00A6 
                  ; 0000 00A7     // Timer(s)/Counter(s) Interrupt(s) initialization
                  ; 0000 00A8     TIMSK=0x12;
-000120 e1e2      	LDI  R30,LOW(18)
-000121 bfe9      	OUT  0x39,R30
+00011e e1e2      	LDI  R30,LOW(18)
+00011f bfe9      	OUT  0x39,R30
                  ; 0000 00A9 
                  ; 0000 00AA     // Analog Comparator initialization
                  ; 0000 00AB     // Analog Comparator: Off
                  ; 0000 00AC     // Analog Comparator Input Capture by Timer/Counter 1: Off
                  ; 0000 00AD     ACSR=0x80;
-000122 e8e0      	LDI  R30,LOW(128)
-000123 b9e8      	OUT  0x8,R30
+000120 e8e0      	LDI  R30,LOW(128)
+000121 b9e8      	OUT  0x8,R30
                  ; 0000 00AE     SFIOR=0x00;
-000124 e0e0      	LDI  R30,LOW(0)
-000125 bfe0      	OUT  0x30,R30
+000122 e0e0      	LDI  R30,LOW(0)
+000123 bfe0      	OUT  0x30,R30
                  ; 0000 00AF 
                  ; 0000 00B0     // Global enable interrupts
                  ; 0000 00B1     #asm("sei")
-000126 9478      	sei
+000124 9478      	sei
                  ; 0000 00B2 
                  ; 0000 00B3     while (1){
                  _0x11:
                  ; 0000 00B4           if(counter == 0){
-000127 91e0 0263 	LDS  R30,_counter
-000129 91f0 0264 	LDS  R31,_counter+1
-00012b 9730      	SBIW R30,0
-00012c f441      	BRNE _0x14
+000125 91e0 0263 	LDS  R30,_counter
+000127 91f0 0264 	LDS  R31,_counter+1
+000129 9730      	SBIW R30,0
+00012a f441      	BRNE _0x14
                  ; 0000 00B5             PORTD = 0b11111110;
-00012d efee      	LDI  R30,LOW(254)
-00012e bbe2      	OUT  0x12,R30
+00012b efee      	LDI  R30,LOW(254)
+00012c bbe2      	OUT  0x12,R30
                  ; 0000 00B6             PORTC = number[hour_2];
-00012f e6a5      	LDI  R26,LOW(_number)
-000130 e0b2      	LDI  R27,HIGH(_number)
-000131 0da6      	ADD  R26,R6
-000132 1db7      	ADC  R27,R7
-000133 91ec      	LD   R30,X
-000134 c039      	RJMP _0x20
+00012d e6a5      	LDI  R26,LOW(_number)
+00012e e0b2      	LDI  R27,HIGH(_number)
+00012f 0da6      	ADD  R26,R6
+000130 1db7      	ADC  R27,R7
+000131 91ec      	LD   R30,X
+000132 c039      	RJMP _0x20
                  ; 0000 00B7           }
                  ; 0000 00B8 
                  ; 0000 00B9           else if(counter == 1){
                  _0x14:
-000135 d03b      	RCALL SUBOPT_0x0
-000136 9711      	SBIW R26,1
-000137 f439      	BRNE _0x16
+000133 d03b      	RCALL SUBOPT_0x0
+000134 9711      	SBIW R26,1
+000135 f439      	BRNE _0x16
                  ; 0000 00BA             PORTD = 0b11111101;
-000138 efed      	LDI  R30,LOW(253)
-000139 bbe2      	OUT  0x12,R30
+000136 efed      	LDI  R30,LOW(253)
+000137 bbe2      	OUT  0x12,R30
                  ; 0000 00BB             PORTC = number[hour_1]| dot;
-00013a e6a5      	LDI  R26,LOW(_number)
-00013b e0b2      	LDI  R27,HIGH(_number)
-00013c 0da4      	ADD  R26,R4
-00013d 1db5      	ADC  R27,R5
-00013e c02b      	RJMP _0x21
+000138 e6a5      	LDI  R26,LOW(_number)
+000139 e0b2      	LDI  R27,HIGH(_number)
+00013a 0da4      	ADD  R26,R4
+00013b 1db5      	ADC  R27,R5
+00013c c02b      	RJMP _0x21
                  ; 0000 00BC           }
                  ; 0000 00BD 
                  ; 0000 00BE           else if(counter == 2) {
                  _0x16:
-00013f d031      	RCALL SUBOPT_0x0
-000140 9712      	SBIW R26,2
-000141 f441      	BRNE _0x18
+00013d d031      	RCALL SUBOPT_0x0
+00013e 9712      	SBIW R26,2
+00013f f441      	BRNE _0x18
                  ; 0000 00BF             PORTD = 0b11111011;
-000142 efeb      	LDI  R30,LOW(251)
-000143 bbe2      	OUT  0x12,R30
+000140 efeb      	LDI  R30,LOW(251)
+000141 bbe2      	OUT  0x12,R30
                  ; 0000 00C0             PORTC = number[minute_2];
-000144 e6a5      	LDI  R26,LOW(_number)
-000145 e0b2      	LDI  R27,HIGH(_number)
-000146 0daa      	ADD  R26,R10
-000147 1dbb      	ADC  R27,R11
-000148 91ec      	LD   R30,X
-000149 c024      	RJMP _0x20
+000142 e6a5      	LDI  R26,LOW(_number)
+000143 e0b2      	LDI  R27,HIGH(_number)
+000144 0daa      	ADD  R26,R10
+000145 1dbb      	ADC  R27,R11
+000146 91ec      	LD   R30,X
+000147 c024      	RJMP _0x20
                  ; 0000 00C1           }
                  ; 0000 00C2 
                  ; 0000 00C3           else if(counter == 3){
                  _0x18:
-00014a d026      	RCALL SUBOPT_0x0
-00014b 9713      	SBIW R26,3
-00014c f439      	BRNE _0x1A
+000148 d026      	RCALL SUBOPT_0x0
+000149 9713      	SBIW R26,3
+00014a f439      	BRNE _0x1A
                  ; 0000 00C4             PORTD = 0b11110111;
-00014d efe7      	LDI  R30,LOW(247)
-00014e bbe2      	OUT  0x12,R30
+00014b efe7      	LDI  R30,LOW(247)
+00014c bbe2      	OUT  0x12,R30
                  ; 0000 00C5             PORTC = number[minute_1]| dot;
-00014f e6a5      	LDI  R26,LOW(_number)
-000150 e0b2      	LDI  R27,HIGH(_number)
-000151 0da8      	ADD  R26,R8
-000152 1db9      	ADC  R27,R9
-000153 c016      	RJMP _0x21
+00014d e6a5      	LDI  R26,LOW(_number)
+00014e e0b2      	LDI  R27,HIGH(_number)
+00014f 0da8      	ADD  R26,R8
+000150 1db9      	ADC  R27,R9
+000151 c016      	RJMP _0x21
                  ; 0000 00C6           }
                  ; 0000 00C7 
                  ; 0000 00C8           else if(counter == 4) {
                  _0x1A:
-000154 d01c      	RCALL SUBOPT_0x0
-000155 9714      	SBIW R26,4
-000156 f451      	BRNE _0x1C
+000152 d01c      	RCALL SUBOPT_0x0
+000153 9714      	SBIW R26,4
+000154 f451      	BRNE _0x1C
                  ; 0000 00C9             PORTD = 0b11101111;
-000157 eeef      	LDI  R30,LOW(239)
-000158 bbe2      	OUT  0x12,R30
+000155 eeef      	LDI  R30,LOW(239)
+000156 bbe2      	OUT  0x12,R30
                  ; 0000 00CA             PORTC = number[second_2];
-000159 91e0 0260 	LDS  R30,_second_2
-00015b 91f0 0261 	LDS  R31,_second_2+1
-00015d 59eb      	SUBI R30,LOW(-_number)
-00015e 4ffd      	SBCI R31,HIGH(-_number)
-00015f 81e0      	LD   R30,Z
-000160 c00d      	RJMP _0x20
+000157 91e0 0260 	LDS  R30,_second_2
+000159 91f0 0261 	LDS  R31,_second_2+1
+00015b 59eb      	SUBI R30,LOW(-_number)
+00015c 4ffd      	SBCI R31,HIGH(-_number)
+00015d 81e0      	LD   R30,Z
+00015e c00d      	RJMP _0x20
                  ; 0000 00CB           }
                  ; 0000 00CC 
                  ; 0000 00CD           else if(counter == 5){
                  _0x1C:
-000161 d00f      	RCALL SUBOPT_0x0
-000162 9715      	SBIW R26,5
-000163 f459      	BRNE _0x1E
+00015f d00f      	RCALL SUBOPT_0x0
+000160 9715      	SBIW R26,5
+000161 f459      	BRNE _0x1E
                  ; 0000 00CE             PORTD = 0b11011111;
-000164 edef      	LDI  R30,LOW(223)
-000165 bbe2      	OUT  0x12,R30
+000162 edef      	LDI  R30,LOW(223)
+000163 bbe2      	OUT  0x12,R30
                  ; 0000 00CF             PORTC = number[second_1] | dot;
-000166 e6a5      	LDI  R26,LOW(_number)
-000167 e0b2      	LDI  R27,HIGH(_number)
-000168 0dac      	ADD  R26,R12
-000169 1dbd      	ADC  R27,R13
+000164 e6a5      	LDI  R26,LOW(_number)
+000165 e0b2      	LDI  R27,HIGH(_number)
+000166 0dac      	ADD  R26,R12
+000167 1dbd      	ADC  R27,R13
                  _0x21:
-00016a 91ec      	LD   R30,X
-00016b 91a0 0262 	LDS  R26,_dot
-00016d 2bea      	OR   R30,R26
+000168 91ec      	LD   R30,X
+000169 91a0 0262 	LDS  R26,_dot
+00016b 2bea      	OR   R30,R26
                  _0x20:
-00016e bbe5      	OUT  0x15,R30
+00016c bbe5      	OUT  0x15,R30
                  ; 0000 00D0           }
                  ; 0000 00D1     }
                  _0x1E:
-00016f cfb7      	RJMP _0x11
+00016d cfb7      	RJMP _0x11
                  ; 0000 00D2 }
                  _0x1F:
-000170 cfff      	RJMP _0x1F
+00016e cfff      	RJMP _0x1F
+                 ; .FEND
                  
                  	.DSEG
                  _second_2:
@@ -1727,9 +1762,9 @@ C:\Users\kavou\Desktop\CodeVisionAVR Projects\MP_Bahareh Kavousi nejad_99431217_
                  	.CSEG
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 6 TIMES, CODE SIZE REDUCTION:7 WORDS
                  SUBOPT_0x0:
-000171 91a0 0263 	LDS  R26,_counter
-000173 91b0 0264 	LDS  R27,_counter+1
-000175 9508      	RET
+00016f 91a0 0263 	LDS  R26,_counter
+000171 91b0 0264 	LDS  R27,_counter+1
+000173 9508      	RET
                  
                  
                  	.CSEG
@@ -1753,9 +1788,9 @@ counted separately from r26..r31 here.
 
 ATmega32 register use summary:
 r0 :   9 r1 :   1 r2 :   0 r3 :   0 r4 :   7 r5 :   5 r6 :   6 r7 :   4 
-r8 :   5 r9 :   3 r10:   5 r11:   3 r12:   6 r13:   3 r14:   0 r15:   0 
+r8 :   5 r9 :   3 r10:   5 r11:   3 r12:   5 r13:   3 r14:   0 r15:   0 
 r16:   0 r17:   0 r18:   0 r19:   0 r20:   0 r21:   0 r22:   2 r23:   0 
-r24:   7 r25:   2 r26:  29 r27:  19 r28:   1 r29:   1 r30: 140 r31:  28 
+r24:   7 r25:   2 r26:  29 r27:  19 r28:   1 r29:   1 r30: 139 r31:  28 
 x  :  10 y  :  22 z  :   8 
 Registers used: 24 out of 35 (68.6%)
 
@@ -1770,11 +1805,11 @@ cbi   :   0 cbr   :   0 clc   :   0 clh   :   0 cli   :   1 cln   :   0
 clr   :  15 cls   :   0 clt   :   0 clv   :   0 clz   :   0 com   :   0 
 cp    :   7 cpc   :   7 cpi   :   0 cpse  :   0 dec   :   1 des   :   0 
 eor   :   0 fmul  :   0 fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 
-in    :   2 inc   :   0 jmp   :  23 ld    :  17 ldd   :   0 ldi   :  63 
-lds   :  11 lpm   :   7 lsl   :   0 lsr   :   0 mov   :   0 movw  :  14 
+in    :   2 inc   :   0 jmp   :  22 ld    :  17 ldd   :   0 ldi   :  63 
+lds   :  11 lpm   :   7 lsl   :   0 lsr   :   0 mov   :   0 movw  :  13 
 mul   :   0 muls  :   0 mulsu :   0 neg   :   0 nop   :   0 or    :   1 
 ori   :   0 out   :  47 pop   :   0 push  :   0 rcall :   6 ret   :   1 
-reti  :   2 rjmp  :  10 rol   :   0 ror   :   0 sbc   :   0 sbci  :   1 
+reti  :   2 rjmp  :  11 rol   :   0 ror   :   0 sbc   :   0 sbci  :   1 
 sbi   :   0 sbic  :   0 sbis  :   0 sbiw  :  11 sbr   :   0 sbrc  :   0 
 sbrs  :   0 sec   :   0 seh   :   0 sei   :   1 sen   :   0 ser   :   0 
 ses   :   0 set   :   0 sev   :   0 sez   :   0 sleep :   0 spm   :   0 
@@ -1785,8 +1820,8 @@ Instructions used: 30 out of 116 (25.9%)
 ATmega32 memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0002ec    706     42    748   32768   2.3%
-[.dseg] 0x000060 0x00026f      0     15     15    2143   0.7%
+[.cseg] 0x000000 0x0002e8    702     42    744   32768   2.3%
+[.dseg] 0x000060 0x00026f      0     15     15    2048   0.7%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
-Assembly complete, 0 errors, 6 warnings
+Assembly complete, 0 errors, 11 warnings

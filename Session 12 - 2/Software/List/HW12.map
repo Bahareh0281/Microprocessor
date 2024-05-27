@@ -1,9 +1,9 @@
 RAM Allocation
 Variable                                                          Address   Size
 --------------------------------------------------------------------------------
-glcd_state                                                        0x027F      29
-ks0108_coord                                                      0x029C       3
-_seed                                                             0x029F       4
+glcd_state                                                        0x0282      29
+ks0108_coord                                                      0x029F       3
+_seed                                                             0x02A2       4
 
 EEPROM Allocation
 Variable                                                          Address   Size

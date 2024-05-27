@@ -1,0 +1,7 @@
+VERSION:3 SOURCE_TIMESTAMP:58BA0563
+NODE:I LEVEL:0 LINE:2 "C:\Program Files (x86)\CodeVision\inc\mega32.h"
+NODE:I LEVEL:0 LINE:3 "C:\Program Files (x86)\CodeVision\inc\delay.h"
+NODE:I LEVEL:0 LINE:6 "C:\Program Files (x86)\CodeVision\inc\alcd.h"
+NODE:V LEVEL:0 LINE:9 "counter -> R5"
+NODE:F LEVEL:0 LINE:11 "timer1_compa_isr(void)"
+NODE:F LEVEL:0 LINE:21 "main(void)"

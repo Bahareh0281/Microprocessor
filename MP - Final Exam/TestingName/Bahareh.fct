@@ -1,0 +1,9 @@
+main DSTACK_USAGE:10 DSTACK_LEVEL:10 FILE:"Bahareh.c" LINE:43
+lcd_putchar DSTACK_USAGE:1 DSTACK_LEVEL:11 FILE:"C:\cvavr\lib\alcd.lib" LINE:265
+lcd_gotoxy DSTACK_USAGE:2 DSTACK_LEVEL:13 FILE:"C:\cvavr\lib\alcd.lib" LINE:247
+_lcd_write_data DSTACK_USAGE:1 DSTACK_LEVEL:14 FILE:"C:\cvavr\lib\alcd.lib" LINE:161
+_lcd_write_nibble DSTACK_USAGE:1 DSTACK_LEVEL:15 FILE:"C:\cvavr\lib\alcd.lib" LINE:139
+timer1_compa_isr DSTACK_USAGE:12 DSTACK_LEVEL:27 FILE:"Bahareh.c" LINE:33
+lcd_clear DSTACK_USAGE:0 DSTACK_LEVEL:27 FILE:"C:\cvavr\lib\alcd.lib" LINE:255
+_lcd_write_data DSTACK_USAGE:1 DSTACK_LEVEL:28 FILE:"C:\cvavr\lib\alcd.lib" LINE:161
+_lcd_write_nibble DSTACK_USAGE:1 DSTACK_LEVEL:29 FILE:"C:\cvavr\lib\alcd.lib" LINE:139

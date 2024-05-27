@@ -43,7 +43,7 @@ glcd_init(&glcd_init_data);
 glcd_clear();
 delay_ms(50);
  //std id and full name
- glcd_outtextxy(0,0,"Bahareh Kavousi nejad");
+ glcd_outtextxy(0,0,"Bahareh Kavousi nejaaaad");
  glcd_outtextxy(0,53,"99431217");
  delay_ms(i);
  glcd_clear();

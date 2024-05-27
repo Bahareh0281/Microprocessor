@@ -1,0 +1,9 @@
+main DSTACK_USAGE:2 DSTACK_LEVEL:2 FILE:"test3.c" LINE:40
+lcd_putchar DSTACK_USAGE:1 DSTACK_LEVEL:3 FILE:"C:\Program Files (x86)\CodeVision\lib\alcd.lib" LINE:263
+lcd_gotoxy DSTACK_USAGE:2 DSTACK_LEVEL:5 FILE:"C:\Program Files (x86)\CodeVision\lib\alcd.lib" LINE:245
+_lcd_write_data DSTACK_USAGE:1 DSTACK_LEVEL:6 FILE:"C:\Program Files (x86)\CodeVision\lib\alcd.lib" LINE:159
+_lcd_write_nibble DSTACK_USAGE:1 DSTACK_LEVEL:7 FILE:"C:\Program Files (x86)\CodeVision\lib\alcd.lib" LINE:137
+timer1_compa_isr DSTACK_USAGE:12 DSTACK_LEVEL:19 FILE:"test3.c" LINE:32
+lcd_clear DSTACK_USAGE:0 DSTACK_LEVEL:19 FILE:"C:\Program Files (x86)\CodeVision\lib\alcd.lib" LINE:253
+_lcd_write_data DSTACK_USAGE:1 DSTACK_LEVEL:20 FILE:"C:\Program Files (x86)\CodeVision\lib\alcd.lib" LINE:159
+_lcd_write_nibble DSTACK_USAGE:1 DSTACK_LEVEL:21 FILE:"C:\Program Files (x86)\CodeVision\lib\alcd.lib" LINE:137

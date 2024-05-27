@@ -83,7 +83,7 @@
 ;PCODE: $00000017 VOL: 0
 ;PCODE: $00000018 VOL: 0
 ; 0000 002D  //std id and full name
-; 0000 002E  glcd_outtextxy(0,0,"Bahareh Kavousi nejad");
+; 0000 002E  glcd_outtextxy(0,0,"Bahareh Kavousi nejaaaad");
 ;PCODE: $00000019 VOL: 0
 ;PCODE: $0000001A VOL: 0
 ;PCODE: $0000001B VOL: 0
@@ -293,7 +293,7 @@
 
 	.DSEG
 _0x3:
-	.BYTE 0x1F
+	.BYTE 0x22
 ;void ballMoving()
 ; 0000 0055 {
 

@@ -22,7 +22,7 @@ Active0=0
 EditorPanel0=0
 PageIndex0=0
 EditorPanel1=0
-TimeStamp1=1488543590
+TimeStamp1=1488585476
 PageIndex1=1
 [Compiler]
 RebuildAll=0
@@ -117,7 +117,7 @@ WarningExternalDeclaredNeverDefined=1
 WarningUnknownPragma=1
 DebugBootLoader=0
 WatchAVR8LAutoVariables=0
-Build=2
+Build=3
 UseEEPROMLocation0=1
 [Assembler]
 OutputFormat=1
@@ -231,6 +231,31 @@ RunUserProg=0
 [HeadersList]
 Files=1
 F1=D:\Bahareh\Semester 8\Files\Microprocessor Lab\Microprocessor\Session 12 - 2\Software\HW12.c
+[Bookmarks0]
+Row=0
+Column=0
+ScrollPosX=0
+ScrollPosY=0
+TimeStamp=1488585537
+[BookmarksFoldedCode]
+Files=1
+F1=HW12.c
+[Bookmarks1]
+TimeStamp=1488585476
+Row=45
+Column=43
+ScrollPosX=0
+ScrollPosY=27
+BK0=-1
+BK1=-1
+BK2=-1
+BK3=-1
+BK4=-1
+BK5=-1
+BK6=-1
+BK7=-1
+BK8=-1
+BK9=-1
 [Header1]
 Files=9
 F1=C:\Program Files (x86)\CodeVision\inc\mega32.h
@@ -242,30 +267,5 @@ F6=C:\Program Files (x86)\CodeVision\inc\glcd_types.h
 F7=C:\Program Files (x86)\CodeVision\inc\stdbool.h
 F8=C:\Program Files (x86)\CodeVision\inc\graphics.h
 F9=C:\Program Files (x86)\CodeVision\inc\font5x7.h
-[Bookmarks0]
-Row=0
-Column=0
-ScrollPosX=0
-ScrollPosY=0
-TimeStamp=1488543608
-[BookmarksFoldedCode]
-Files=1
-F1=HW12.c
-[Bookmarks1]
-TimeStamp=1488543590
-Row=137
-Column=1
-ScrollPosX=0
-ScrollPosY=0
-BK0=-1
-BK1=-1
-BK2=-1
-BK3=-1
-BK4=-1
-BK5=-1
-BK6=-1
-BK7=-1
-BK8=-1
-BK9=-1
 [FoldedCode1]
 Blocks=0
