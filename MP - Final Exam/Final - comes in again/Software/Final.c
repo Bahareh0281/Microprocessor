@@ -2,7 +2,7 @@
 This program was created by the
 CodeWizardAVR V3.14 Advanced
 Automatic Program Generator
-© Copyright 1998-2014 Pavel Haiduc, HP InfoTech s.r.l.
+ï¿½ Copyright 1998-2014 Pavel Haiduc, HP InfoTech s.r.l.
 http://www.hpinfotech.com
 
 Project : 
@@ -165,7 +165,7 @@ lcd_init(16);
 
     while (1)
           {
-          char* name = "Bahareh Kavousi";
+          char* name = "HEllo";
           for(j=0, i=14;j<15, i >= 0;j++, i--)
           {
               posx = j + start;
